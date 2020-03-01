@@ -4,12 +4,14 @@ import 'package:flutter/material.dart';
 class Sample extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return SamplePage();
+    return SamplePage(title: 'Fade Demo',);
   }
 }
 
 class SamplePage extends StatefulWidget {
-  SamplePage({Key key}) : super(key: key);
+  SamplePage({Key key, this.title}) : super(key: key);
+
+  final String title;
 
   @override
   _SamplePageState createState() {
@@ -17,9 +19,11 @@ class SamplePage extends StatefulWidget {
   }
 }
 
-class _SamplePageState extends State<SamplePage> {
+class _SamplePageState extends State<SamplePage> with TickerProviderStateMixin {
   String textToShow = 'I Like Flutter';
   bool toggle = true;
+  AnimationController controller;
+  CurvedAnimation curvedAnimation;
 
   void _toggle() {
     setState(() {
@@ -41,10 +45,21 @@ class _SamplePageState extends State<SamplePage> {
   @override
   void initState() {
     super.initState();
+
+    controller = AnimationController(
+      duration: const Duration(milliseconds: 2000),
+      vsync: this
+    );
+    curvedAnimation = CurvedAnimation(
+      parent: controller,
+      curve: Curves.easeInOut
+    );
   }
 
   @override
   void dispose() {
+    controller.dispose();
+
     super.dispose();
   }
 
@@ -52,29 +67,45 @@ class _SamplePageState extends State<SamplePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Sample Page'),
+        title: Text(widget.title),
       ),
       body: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: <Widget>[
-            _getToggleChild(),
-            CupertinoButton(
-              child: Text('Hello'),
-              onPressed: () {
-                setState(() {
-                  textToShow = 'Hello KenmuHuang';
-                });
-              },
-              padding: EdgeInsets.only(top: 10.0, left: 10.0, bottom: 0.0, right: 10.0),
+        child: Container(
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: <Widget>[
+                _getToggleChild(),
+                CupertinoButton(
+                  child: Text('Hello'),
+                  onPressed: () {
+                    setState(() {
+                      textToShow = 'Hello KenmuHuang';
+                    });
+                  },
+                  padding: EdgeInsets.only(top: 10.0, left: 10.0, bottom: 0.0, right: 10.0),
+                ),
+                FadeTransition(
+                  opacity: curvedAnimation,
+                  child: FlutterLogo(
+                    size: 100.0,
+                  ),
+                ),
+              ],
             )
-          ],
         )
       ),
       floatingActionButton: FloatingActionButton(
-        onPressed: _toggle,
-        tooltip: 'Toggle Child',
-        child: Icon(Icons.update),
+        onPressed: () {
+          if (toggle) {
+            controller.forward();
+          } else {
+            controller.reverse();
+          }
+
+          _toggle();
+        },
+        tooltip: 'Fade',
+        child: Icon(Icons.brush),
       ),
     );
   }
