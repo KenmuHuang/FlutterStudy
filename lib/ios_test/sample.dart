@@ -19,10 +19,23 @@ class SamplePage extends StatefulWidget {
 
 class _SamplePageState extends State<SamplePage> {
   String textToShow = 'I Like Flutter';
-  void _updateText() {
+  bool toggle = true;
+
+  void _toggle() {
     setState(() {
-      textToShow = 'Flutter is Awesome';
+      toggle = !toggle;
     });
+  }
+
+  Widget _getToggleChild() {
+    if (toggle) {
+      return Text(textToShow + ', Toggle One');
+    } else {
+      return CupertinoButton(
+        child: Text(textToShow + ', Toggle Two'),
+        onPressed: null,
+      );
+    }
   }
 
   @override
@@ -45,7 +58,7 @@ class _SamplePageState extends State<SamplePage> {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
-            Text(textToShow),
+            _getToggleChild(),
             CupertinoButton(
               child: Text('Hello'),
               onPressed: () {
@@ -59,8 +72,8 @@ class _SamplePageState extends State<SamplePage> {
         )
       ),
       floatingActionButton: FloatingActionButton(
-        onPressed: _updateText,
-        tooltip: 'Update Text',
+        onPressed: _toggle,
+        tooltip: 'Toggle Child',
         child: Icon(Icons.update),
       ),
     );
