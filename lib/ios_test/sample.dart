@@ -1,3 +1,4 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 class Sample extends StatelessWidget {
@@ -17,10 +18,10 @@ class SamplePage extends StatefulWidget {
 }
 
 class _SamplePageState extends State<SamplePage> {
-  String textToShow = "I Like Flutter";
+  String textToShow = 'I Like Flutter';
   void _updateText() {
     setState(() {
-      textToShow = "Flutter is Awesome";
+      textToShow = 'Flutter is Awesome';
     });
   }
 
@@ -38,14 +39,28 @@ class _SamplePageState extends State<SamplePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("Sample Page"),
+        title: Text('Sample Page'),
       ),
       body: Center(
-        child: Text(textToShow),
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: <Widget>[
+            Text(textToShow),
+            CupertinoButton(
+              child: Text('Hello'),
+              onPressed: () {
+                setState(() {
+                  textToShow = 'Hello KenmuHuang';
+                });
+              },
+              padding: EdgeInsets.only(top: 10.0, left: 10.0, bottom: 0.0, right: 10.0),
+            )
+          ],
+        )
       ),
       floatingActionButton: FloatingActionButton(
         onPressed: _updateText,
-        tooltip: "Update Text",
+        tooltip: 'Update Text',
         child: Icon(Icons.update),
       ),
     );
