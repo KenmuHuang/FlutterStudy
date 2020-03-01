@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:english_words/english_words.dart';
+import 'ios_test/sample.dart';
 
 void main() => runApp(MyApp());
 
@@ -61,6 +62,16 @@ class RandomWordsState extends State<RandomWords> {
     );
   }
 
+  void _pushSample() {
+    Navigator.of(context).push(
+      MaterialPageRoute<void>(
+        builder: (BuildContext context) {
+          return Sample();
+        }
+      ),
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -68,6 +79,7 @@ class RandomWordsState extends State<RandomWords> {
         title: Text('Startup Name Generator'),
         actions: <Widget>[
           IconButton(icon: Icon(Icons.list), onPressed: _pushSaved),
+          IconButton(icon: Icon(Icons.link), onPressed: _pushSample),
         ],
       ),
       body: _buildSuggestions(),
