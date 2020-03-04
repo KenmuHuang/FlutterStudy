@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:english_words/english_words.dart';
+import 'package:flutter_app/ios_test/signature_painter.dart';
 import 'ios_test/sample.dart';
 
 void main() => runApp(MyApp());
@@ -72,6 +73,16 @@ class RandomWordsState extends State<RandomWords> {
     );
   }
 
+  void _pushSignaturePainter() {
+    Navigator.of(context).push(
+      MaterialPageRoute<void>(
+          builder: (BuildContext context) {
+            return Signature(title: '绘画');
+          }
+      ),
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -80,6 +91,7 @@ class RandomWordsState extends State<RandomWords> {
         actions: <Widget>[
           IconButton(icon: Icon(Icons.list), onPressed: _pushSaved),
           IconButton(icon: Icon(Icons.link), onPressed: _pushSample),
+          IconButton(icon: Icon(Icons.brush), onPressed: _pushSignaturePainter),
         ],
       ),
       body: _buildSuggestions(),
