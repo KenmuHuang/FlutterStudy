@@ -79,9 +79,10 @@ class RandomWordsState extends State<RandomWords> {
     );
   }
 
-  void _pushSignaturePainter() {
+  void _pushSignaturePainter() async {
     String routeName = _pushSignaturePainterCount % 2 == 0 ? kRouteNameOfSignaturePage1 : kRouteNameOfSignaturePage2;
-    Navigator.of(context).pushNamed(routeName);
+    final result = await Navigator.of(context).pushNamed(routeName);
+    print('The result of pop SignaturePage: ' + result);
 
     _pushSignaturePainterCount++;
 

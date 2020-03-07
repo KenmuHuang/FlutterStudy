@@ -57,6 +57,13 @@ class _SignatureState extends State<Signature> {
     return Scaffold(
       appBar: AppBar(
         title: Text(widget.title),
+        leading: IconButton(
+          icon: Icon(Icons.arrow_back),
+          onPressed: () {
+            // https://stackoverflow.com/questions/44978216/flutter-remove-back-button-on-appbar
+            Navigator.of(context).pop(widget.title);
+          },
+        ),
       ),
       body: new Stack(
         children: <Widget>[
