@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:english_words/english_words.dart';
+import 'package:flutter_app/ios_test/custom_button.dart';
 import 'package:flutter_app/ios_test/signature_painter.dart';
 import 'ios_test/sample.dart';
 
@@ -106,15 +107,15 @@ class RandomWordsState extends State<RandomWords> {
       }
 
       // 0, 1, 2, 3, 4, 5 => index = 0, 0, 1, 1, 2, 2
-      final index = i ~/ 2;
+      final int index = i ~/ 2;
       if (index >= _suggestions.length) {
         _suggestions.addAll(generateWordPairs().take(10));
       }
-      return _buildRow(_suggestions[index]);
+      return _buildRow(_suggestions[index], index);
     });
   }
 
-  Widget _buildRow(WordPair pair) {
+  Widget _buildRow(WordPair pair, int row) {
     final bool alreadySaved = _saved.contains(pair);
 
     return ListTile(
@@ -122,6 +123,7 @@ class RandomWordsState extends State<RandomWords> {
         pair.asPascalCase,
         style: _biggerFont,
       ),
+      subtitle: CustomButton(labelText: ('Hello Kenmu ' + row.toString())),
       trailing: Icon(
         alreadySaved ? Icons.favorite : Icons.favorite_border,
         color: alreadySaved ? Colors.red : null,
