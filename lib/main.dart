@@ -15,6 +15,10 @@ class MyApp extends StatelessWidget {
         primaryColor: Colors.purple[600],
       ),
       home: RandomWords(),
+      routes: <String, WidgetBuilder> {
+        kRouteNameOfSignaturePage1: (BuildContext context) => Signature(title: kRouteNameOfSignaturePage1.substring(1)),
+        kRouteNameOfSignaturePage2: (BuildContext context) => Signature(title: kRouteNameOfSignaturePage2.substring(1)),
+      },
     );
   }
 }
@@ -33,6 +37,7 @@ class RandomWordsState extends State<RandomWords> {
   final List<WordPair> _suggestions = <WordPair>[];
   final Set<WordPair> _saved = Set<WordPair>();
   final TextStyle _biggerFont = const TextStyle(fontSize: 18.0);
+  int _pushSignaturePainterCount = 0;
 
   void _pushSaved() {
     Navigator.of(context).push(
@@ -75,13 +80,18 @@ class RandomWordsState extends State<RandomWords> {
   }
 
   void _pushSignaturePainter() {
-    Navigator.of(context).push(
-      MaterialPageRoute<void>(
-          builder: (BuildContext context) {
-            return Signature(title: '绘画');
-          }
-      ),
-    );
+    String routeName = _pushSignaturePainterCount % 2 == 0 ? kRouteNameOfSignaturePage1 : kRouteNameOfSignaturePage2;
+    Navigator.of(context).pushNamed(routeName);
+
+    _pushSignaturePainterCount++;
+
+//    Navigator.of(context).push(
+//      MaterialPageRoute<void>(
+//          builder: (BuildContext context) {
+//            return Signature(title: '绘画');
+//          }
+//      ),
+//    );
   }
 
   @override

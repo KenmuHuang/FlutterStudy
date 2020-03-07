@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
 
+final String kRouteNameOfSignaturePage1 = '/SignaturePage1';
+final String kRouteNameOfSignaturePage2 = '/SignaturePage2';
+
 class SignaturePainter extends CustomPainter {
   SignaturePainter(this.points);
 
@@ -77,6 +80,7 @@ class _SignatureState extends State<Signature> {
           ),
         ],
       ),
+      backgroundColor: (kRouteNameOfSignaturePage1.endsWith(widget.title) ? Colors.lightBlue[50] : Colors.grey[300]),
     );
   }
 }
