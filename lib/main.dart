@@ -34,9 +34,14 @@ class RandomWords extends StatefulWidget {
 
 class RandomWordsState extends State<RandomWords> {
   static const String _keyOfTitle = 'title';
-  static const String _keyOfSubTitle = 'subTitle';
+  static const String _keyOfSubtitle = 'subtitle';
+  static const String _keyOfRouteName = 'routeName';
   final List<Map<String, String>> _pageInfoList = [
-    {_keyOfTitle: 'Threading & asynchronicity', _keyOfSubTitle: 'How do I write asynchronous code?'},
+    {
+      _keyOfTitle: 'Threading & asynchronicity',
+      _keyOfSubtitle: 'How do I write asynchronous code?',
+      _keyOfRouteName: kRouteNameOfSignaturePage2
+    },
   ];
   int _pushSignaturePainterCount = 0;
 
@@ -74,6 +79,11 @@ class RandomWordsState extends State<RandomWords> {
 //          }
 //      ),
 //    );
+  }
+
+  void _pushPageByRouteName(String routeName) async {
+    final result = await Navigator.of(context).pushNamed(routeName);
+    print('The result of pop SignaturePage: $result');
   }
 
   @override
@@ -114,13 +124,11 @@ class RandomWordsState extends State<RandomWords> {
         style: const TextStyle(fontSize: 18.0, color: Colors.black),
       ),
       subtitle: Text(
-        pageInfo[_keyOfSubTitle],
+        pageInfo[_keyOfSubtitle],
         style: const TextStyle(fontSize: 14.0),
       ),
       onTap: () {
-        setState(() {
-
-        });
+        _pushPageByRouteName(pageInfo[_keyOfRouteName]);
       },
     );
   }
