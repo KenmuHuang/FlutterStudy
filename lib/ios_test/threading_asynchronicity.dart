@@ -46,18 +46,7 @@ class _ThreadingAsynchronicityPageState extends State<ThreadingAsynchronicityPag
       appBar: AppBar(
         title: Text(widget.title),
       ),
-      body: ListView.builder(
-          itemCount: widgets.length * 2,
-          itemBuilder: (BuildContext context, int i) {
-            if (i.isOdd) {
-              // Split Line
-              return Divider();
-            }
-
-            // 0, 1, 2, 3, 4, 5 => index = 0, 0, 1, 1, 2, 2
-            final int index = i ~/ 2;
-            return getRow(index);
-          }),
+      body: getBody(),
     );
   }
 
@@ -78,4 +67,27 @@ class _ThreadingAsynchronicityPageState extends State<ThreadingAsynchronicityPag
     });
     print('response.statusCode: ${response.statusCode}');
   }
+
+  bool isShowLoadingDialog() => widgets.length == 0;
+
+  Widget getLoadingDialog() =>
+      Center(
+        child: CircularProgressIndicator(),
+      );
+
+  ListView getListView() =>
+      ListView.builder(
+          itemCount: widgets.length * 2,
+          itemBuilder: (BuildContext context, int i) {
+            if (i.isOdd) {
+              // Split Line
+              return Divider();
+            }
+
+            // 0, 1, 2, 3, 4, 5 => index = 0, 0, 1, 1, 2, 2
+            final int index = i ~/ 2;
+            return getRow(index);
+          });
+
+  Widget getBody() => isShowLoadingDialog() ? getLoadingDialog() : getListView();
 }
