@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_app/ios_test/name_generator.dart';
-import 'package:flutter_app/ios_test/sample.dart';
-import 'package:flutter_app/ios_test/signature_painter.dart';
+
+import 'ios_test/name_generator.dart';
+import 'ios_test/sample.dart';
+import 'ios_test/signature_painter.dart';
+import 'ios_test/threading_asynchronicity.dart';
 
 void main() => runApp(MyApp());
 
@@ -15,8 +17,9 @@ class MyApp extends StatelessWidget {
       ),
       home: RandomWords(),
       routes: <String, WidgetBuilder> {
-        kRouteNameOfSignaturePage1: (BuildContext context) => Signature(title: kRouteNameOfSignaturePage1.substring(1)),
-        kRouteNameOfSignaturePage2: (BuildContext context) => Signature(title: kRouteNameOfSignaturePage2.substring(1)),
+        routeNameOfSignaturePage1: (BuildContext context) => Signature(title: routeNameOfSignaturePage1.substring(1)),
+        routeNameOfSignaturePage2: (BuildContext context) => Signature(title: routeNameOfSignaturePage2.substring(1)),
+        routeNameOfThreadingAsynchronicityPage: (BuildContext context) => ThreadingAsynchronicity(),
       },
     );
   }
@@ -40,7 +43,7 @@ class RandomWordsState extends State<RandomWords> {
     {
       _keyOfTitle: 'Threading & asynchronicity',
       _keyOfSubtitle: 'How do I write asynchronous code?',
-      _keyOfRouteName: kRouteNameOfSignaturePage2
+      _keyOfRouteName: routeNameOfThreadingAsynchronicityPage
     },
   ];
   int _pushSignaturePainterCount = 0;
@@ -66,7 +69,7 @@ class RandomWordsState extends State<RandomWords> {
   }
 
   void _pushSignaturePainter() async {
-    String routeName = _pushSignaturePainterCount % 2 == 0 ? kRouteNameOfSignaturePage1 : kRouteNameOfSignaturePage2;
+    String routeName = _pushSignaturePainterCount % 2 == 0 ? routeNameOfSignaturePage1 : routeNameOfSignaturePage2;
     final result = await Navigator.of(context).pushNamed(routeName);
     print('The result of pop SignaturePage: $result');
 
@@ -83,7 +86,7 @@ class RandomWordsState extends State<RandomWords> {
 
   void _pushPageByRouteName(String routeName) async {
     final result = await Navigator.of(context).pushNamed(routeName);
-    print('The result of pop SignaturePage: $result');
+    print('The result of pop ${routeName.substring(1)}: $result');
   }
 
   @override
