@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_app/ios_test/threading_isolate.dart';
 
 import 'ios_test/name_generator.dart';
 import 'ios_test/sample.dart';
@@ -20,6 +21,7 @@ class MyApp extends StatelessWidget {
         routeNameOfSignaturePage1: (BuildContext context) => Signature(title: routeNameOfSignaturePage1.substring(1)),
         routeNameOfSignaturePage2: (BuildContext context) => Signature(title: routeNameOfSignaturePage2.substring(1)),
         routeNameOfThreadingAsynchronicityPage: (BuildContext context) => ThreadingAsynchronicity(),
+        routeNameOfThreadingIsolatePage: (BuildContext context) => ThreadingIsolate(),
       },
     );
   }
@@ -44,6 +46,11 @@ class RandomWordsState extends State<RandomWords> {
       _keyOfTitle: 'Threading & asynchronicity',
       _keyOfSubtitle: 'How do I write asynchronous code?',
       _keyOfRouteName: routeNameOfThreadingAsynchronicityPage
+    },
+    {
+      _keyOfTitle: 'Threading & asynchronicity',
+      _keyOfSubtitle: 'How do you move work to a background thread?',
+      _keyOfRouteName: routeNameOfThreadingIsolatePage
     },
   ];
   int _pushSignaturePainterCount = 0;

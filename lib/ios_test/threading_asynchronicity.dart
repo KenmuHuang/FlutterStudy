@@ -50,23 +50,7 @@ class _ThreadingAsynchronicityPageState extends State<ThreadingAsynchronicityPag
     );
   }
 
-  Widget getRow(int row) {
-    return Padding(
-      padding: EdgeInsets.all(15.0),
-      child: Text('Row ${widgets[row]['title']}'),
-    );
-  }
-
-  void loadData() async {
-    String dataUrl = 'https://jsonplaceholder.typicode.com/posts';
-    // https://blog.csdn.net/Dreamfine/article/details/83859915
-    // https://www.cnblogs.com/ajanuw/p/10999826.html
-    http.Response response = await http.get(dataUrl);
-    setState(() {
-      widgets = json.decode(response.body);
-    });
-    print('response.statusCode: ${response.statusCode}');
-  }
+  Widget getBody() => isShowLoadingDialog() ? getLoadingDialog() : getListView();
 
   bool isShowLoadingDialog() => widgets.length == 0;
 
@@ -89,5 +73,18 @@ class _ThreadingAsynchronicityPageState extends State<ThreadingAsynchronicityPag
             return getRow(index);
           });
 
-  Widget getBody() => isShowLoadingDialog() ? getLoadingDialog() : getListView();
+  Widget getRow(int row) =>
+      Padding(
+        padding: EdgeInsets.all(15.0),
+        child: Text('Row ${widgets[row]['title']}'),
+      );
+
+  void loadData() async {
+    String dataUrl = 'https://jsonplaceholder.typicode.com/posts';
+    http.Response response = await http.get(dataUrl);
+    setState(() {
+      widgets = json.decode(response.body);
+    });
+    print('response.statusCode: ${response.statusCode}');
+  }
 }
