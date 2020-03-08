@@ -33,8 +33,10 @@ class RandomWords extends StatefulWidget {
 }
 
 class RandomWordsState extends State<RandomWords> {
-  final List<String> _pageInfoList = [
-    'Threading & asynchronicity'
+  static const String _keyOfTitle = 'title';
+  static const String _keyOfSubTitle = 'subTitle';
+  final List<Map<String, String>> _pageInfoList = [
+    {_keyOfTitle: 'Threading & asynchronicity', _keyOfSubTitle: 'How do I write asynchronous code?'},
   ];
   int _pushSignaturePainterCount = 0;
 
@@ -105,11 +107,15 @@ class RandomWordsState extends State<RandomWords> {
         });
   }
 
-  Widget _buildRow(String pageInfo, int row) {
+  Widget _buildRow(Map<String, String> pageInfo, int row) {
     return ListTile(
       title: Text(
-        pageInfo,
-        style: const TextStyle(fontSize: 18.0),
+        pageInfo[_keyOfTitle],
+        style: const TextStyle(fontSize: 18.0, color: Colors.black),
+      ),
+      subtitle: Text(
+        pageInfo[_keyOfSubTitle],
+        style: const TextStyle(fontSize: 14.0),
       ),
       onTap: () {
         setState(() {
