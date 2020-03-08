@@ -7,11 +7,29 @@ class CustomButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return RaisedButton(
-      onPressed: () {
+    return Row(
+      mainAxisAlignment: MainAxisAlignment.start,
+      children: <Widget>[
+        Image(
+          image: AssetImage('images/icon_home_top_card.png'),
+          width: 44.0,
+          height: 44.0,
+        ),
+        Image.asset(
+          'images/icon_home_top_card.png',
+          width: 44.0,
+          height: 44.0,
+        ),
+        Padding(
+          padding: EdgeInsets.only(top: 22.0, left: 5.0, bottom: 22.0, right: 5.0),
+        ),
+        RaisedButton(
+          onPressed: () {
 
-      },
-      child: Text(labelText),
+          },
+          child: Text(labelText),
+        )
+      ],
     );
   }
 }
