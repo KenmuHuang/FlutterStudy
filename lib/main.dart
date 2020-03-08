@@ -1,8 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:english_words/english_words.dart';
 import 'package:flutter_app/ios_test/name_generator.dart';
+import 'package:flutter_app/ios_test/sample.dart';
 import 'package:flutter_app/ios_test/signature_painter.dart';
-import 'ios_test/sample.dart';
 
 void main() => runApp(MyApp());
 
