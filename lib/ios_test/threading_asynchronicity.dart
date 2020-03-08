@@ -47,16 +47,23 @@ class _ThreadingAsynchronicityPageState extends State<ThreadingAsynchronicityPag
         title: Text(widget.title),
       ),
       body: ListView.builder(
-          itemCount: widgets.length,
-          itemBuilder: (BuildContext context, int row) {
-            return getRow(row);
+          itemCount: widgets.length * 2,
+          itemBuilder: (BuildContext context, int i) {
+            if (i.isOdd) {
+              // Split Line
+              return Divider();
+            }
+
+            // 0, 1, 2, 3, 4, 5 => index = 0, 0, 1, 1, 2, 2
+            final int index = i ~/ 2;
+            return getRow(index);
           }),
     );
   }
 
   Widget getRow(int row) {
     return Padding(
-      padding: EdgeInsets.all(11.0),
+      padding: EdgeInsets.all(15.0),
       child: Text('Row ${widgets[row]['title']}'),
     );
   }
