@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_app/ios_test/threading_isolate.dart';
+import 'package:flutter_localizations/flutter_localizations.dart';
 
+import 'ios_test/localization.dart';
 import 'ios_test/name_generator.dart';
 import 'ios_test/sample.dart';
 import 'ios_test/signature_painter.dart';
@@ -12,6 +14,16 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      onGenerateTitle: (BuildContext context) => Localization.of(context).title,
+      localizationsDelegates: [
+        const LocalizationDelegate(),
+        GlobalMaterialLocalizations.delegate,
+        GlobalWidgetsLocalizations.delegate,
+      ],
+      supportedLocales: [
+        const Locale('en', ''),
+        const Locale.fromSubtags(languageCode: 'zh'),
+      ],
       title: 'Home Page',
       theme: ThemeData(
         primaryColor: Colors.purple[600],
@@ -22,6 +34,7 @@ class MyApp extends StatelessWidget {
         routeNameOfSignaturePage2: (BuildContext context) => Signature(title: routeNameOfSignaturePage2.substring(1)),
         routeNameOfThreadingAsynchronicityPage: (BuildContext context) => ThreadingAsynchronicity(),
         routeNameOfThreadingIsolatePage: (BuildContext context) => ThreadingIsolate(),
+        routeNameOfLocalizationDemoPage: (BuildContext context) => LocalizationDemo(),
       },
     );
   }
@@ -51,6 +64,11 @@ class RandomWordsState extends State<RandomWords> {
       _keyOfTitle: 'Threading & asynchronicity',
       _keyOfSubtitle: 'How do you move work to a background thread?',
       _keyOfRouteName: routeNameOfThreadingIsolatePage
+    },
+    {
+      _keyOfTitle: 'Localization',
+      _keyOfSubtitle: 'Where do I store strings? How do I handle localization?',
+      _keyOfRouteName: routeNameOfLocalizationDemoPage
     },
   ];
   int _pushSignaturePainterCount = 0;
@@ -100,7 +118,7 @@ class RandomWordsState extends State<RandomWords> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Kenmu Home Page'),
+        title: Text(Strings.welcomeMessage),
         actions: <Widget>[
           IconButton(icon: Icon(Icons.list), onPressed: _pushNameGenerator),
           IconButton(icon: Icon(Icons.link), onPressed: _pushSample),
