@@ -49,12 +49,21 @@ class _TableAndCollectionPageState extends State<TableAndCollectionPage> {
     List<Widget> widgets = [];
 
     for (int i = 0; i < 100; ++i) {
-      widgets.add(
-          Padding(
-            padding: EdgeInsets.all(10.0),
-            child: Text('Row $i'),
-          )
-      );
+      widgets.add(GestureDetector(
+        child: Padding(
+          padding: EdgeInsets.all(10.0),
+          child: Text('Row $i'),
+        ),
+        onTap: () {
+          print('Row $i tapped');
+        },
+        onDoubleTap: () {
+          print('Row $i double tapped');
+        },
+        onLongPress: () {
+          print('Row $i long pressed');
+        },
+      ));
     }
 
     return widgets;
