@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_app/ios_test/table_and_collection.dart';
 import 'package:flutter_app/ios_test/threading_isolate.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 
@@ -35,6 +36,7 @@ class MyApp extends StatelessWidget {
         routeNameOfThreadingAsynchronicityPage: (BuildContext context) => ThreadingAsynchronicity(),
         routeNameOfThreadingIsolatePage: (BuildContext context) => ThreadingIsolate(),
         routeNameOfLocalizationDemoPage: (BuildContext context) => LocalizationDemo(),
+        routeNameOfTableAndCollectionPage: (BuildContext context) => TableAndCollection(),
       },
     );
   }
@@ -69,6 +71,11 @@ class RandomWordsState extends State<RandomWords> {
       _keyOfTitle: 'Localization',
       _keyOfSubtitle: 'Where do I store strings? How do I handle localization?',
       _keyOfRouteName: routeNameOfLocalizationDemoPage
+    },
+    {
+      _keyOfTitle: 'Layouts',
+      _keyOfSubtitle: 'What is the equivalent of UITableView or UICollectionView in Flutter?',
+      _keyOfRouteName: routeNameOfTableAndCollectionPage
     },
   ];
   int _pushSignaturePainterCount = 0;
