@@ -7,7 +7,9 @@ class TableAndCollection extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return TableAndCollectionPage(title: 'Table And Collection Page',);
+    return TableAndCollectionPage(
+      title: 'Table And Collection Page',
+    );
   }
 }
 
@@ -23,9 +25,13 @@ class TableAndCollectionPage extends StatefulWidget {
 }
 
 class _TableAndCollectionPageState extends State<TableAndCollectionPage> {
+  List<Widget> widgets = [];
+
   @override
   void initState() {
     super.initState();
+
+    _initListData(10);
   }
 
   @override
@@ -40,32 +46,37 @@ class _TableAndCollectionPageState extends State<TableAndCollectionPage> {
         title: Text(widget.title),
       ),
       body: ListView(
-        children: _getListData(),
+        children: widgets,
       ),
     );
   }
 
-  List<Widget> _getListData() {
-    List<Widget> widgets = [];
-
-    for (int i = 0; i < 100; ++i) {
-      widgets.add(GestureDetector(
-        child: Padding(
-          padding: EdgeInsets.all(10.0),
-          child: Text('Row $i'),
-        ),
-        onTap: () {
-          print('Row $i tapped');
-        },
-        onDoubleTap: () {
-          print('Row $i double tapped');
-        },
-        onLongPress: () {
-          print('Row $i long pressed');
-        },
-      ));
+  void _initListData(int length) {
+    for (int i = 0; i < length; ++i) {
+      widgets.add(_getRow(i));
     }
+  }
 
-    return widgets;
+  Widget _getRow(int i) {
+    return GestureDetector(
+      child: Padding(
+        padding: EdgeInsets.all(10.0),
+        child: Text('Row $i'),
+      ),
+      onTap: () {
+        setState(() {
+          widgets = List.from(widgets);
+          widgets.add(_getRow(widgets.length));
+
+          print('Row $i tapped');
+        });
+      },
+      onDoubleTap: () {
+        print('Row $i double tapped');
+      },
+      onLongPress: () {
+        print('Row $i long pressed');
+      },
+    );
   }
 }
