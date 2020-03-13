@@ -45,9 +45,11 @@ class _TableAndCollectionPageState extends State<TableAndCollectionPage> {
       appBar: AppBar(
         title: Text(widget.title),
       ),
-      body: ListView(
-        children: widgets,
-      ),
+      body: ListView.builder(
+          itemCount: widgets.length,
+          itemBuilder: (BuildContext context, int position) {
+            return _getRow(position);
+          }),
     );
   }
 
@@ -65,7 +67,7 @@ class _TableAndCollectionPageState extends State<TableAndCollectionPage> {
       ),
       onTap: () {
         setState(() {
-          widgets = List.from(widgets);
+//          widgets = List.from(widgets);
           widgets.add(_getRow(widgets.length));
 
           print('Row $i tapped');
