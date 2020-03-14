@@ -26,8 +26,7 @@ class GestureDetectorDemoPage extends StatefulWidget {
 
 class _GestureDetectorDemoPageState extends State<GestureDetectorDemoPage> with TickerProviderStateMixin {
   static const double logoDefaultWidth = 100.0;
-  GlobalKey stackGlobalKey = GlobalKey();
-  GlobalKey logoGlobalKey = GlobalKey();
+  GlobalKey _stackGlobalKey = GlobalKey();
   double _areaWidth = 0.0;
   double _areaHeight = 0.0;
   double _logoWidth = logoDefaultWidth;
@@ -42,9 +41,7 @@ class _GestureDetectorDemoPageState extends State<GestureDetectorDemoPage> with 
     super.initState();
     
     WidgetsBinding.instance.addPostFrameCallback((duration) {
-      // stackGlobalKey 和 buttonGlobalKey 是为了获取 widget 的尺寸
-      _areaWidth = stackGlobalKey.currentContext.size.width - logoGlobalKey.currentContext.size.width;
-      _areaHeight = stackGlobalKey.currentContext.size.height - logoGlobalKey.currentContext.size.height;
+      _resetAreaSize();
     });
 
     // Animation
@@ -82,14 +79,13 @@ class _GestureDetectorDemoPageState extends State<GestureDetectorDemoPage> with 
 
   Widget _getStackWidget() {
     return new Stack(
-      key: stackGlobalKey,
+      key: _stackGlobalKey,
       children: <Widget>[
         Positioned(
             top: _logoTop,
             left: _logoLeft,
             child: GestureDetector(
               child: RotationTransition(
-                  key: logoGlobalKey,
                   turns: curvedAnimation,
                   child: FlutterLogo(
                     size: _logoWidth,
@@ -141,6 +137,7 @@ class _GestureDetectorDemoPageState extends State<GestureDetectorDemoPage> with 
 
                 setState(() {
                   _logoWidth = _logoWidth == logoDefaultWidth ? 200.0 : logoDefaultWidth;
+                  _resetAreaSize();
                 });
               },
               onLongPressMoveUpdate: (LongPressMoveUpdateDetails details) {
@@ -302,5 +299,11 @@ class _GestureDetectorDemoPageState extends State<GestureDetectorDemoPage> with 
             ))
       ],
     );
+  }
+
+  void _resetAreaSize() {
+    // stackGlobalKey 是为了获取 widget 的尺寸
+    _areaWidth = _stackGlobalKey.currentContext.size.width - _logoWidth;
+    _areaHeight = _stackGlobalKey.currentContext.size.height - _logoWidth;
   }
 }
