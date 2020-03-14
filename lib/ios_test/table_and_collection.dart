@@ -91,7 +91,20 @@ class _TableAndCollectionPageState extends State<TableAndCollectionPage> {
       Text('Row One'),
       Text('Row Two'),
       Text('Row Three'),
-      Text('Row Four'),
+      GestureDetector(
+        child: FlutterLogo(
+          size: 100.0,
+        ),
+        onTap: () {
+          print('Click listener way of GestureDetector, FlutterLogo clicked');
+        },
+      ),
+      RaisedButton(
+        child: Text('Row Five, RaisedButton'),
+        onPressed: () {
+          print('Click listener way of the widget supports event detection, RaisedButton clicked');
+        },
+      ),
     ];
   }
 }
