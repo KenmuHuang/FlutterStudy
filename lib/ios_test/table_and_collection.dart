@@ -49,7 +49,11 @@ class _TableAndCollectionPageState extends State<TableAndCollectionPage> {
           itemCount: widgets.length,
           itemBuilder: (BuildContext context, int position) {
             return _getRow(position);
-          }),
+          },
+      ),
+//      body: ListView(
+//        children: _getSimpleScrollView(),
+//      ),
     );
   }
 
@@ -80,5 +84,14 @@ class _TableAndCollectionPageState extends State<TableAndCollectionPage> {
         print('Row $i long pressed');
       },
     );
+  }
+
+  List<Widget> _getSimpleScrollView() {
+    return <Widget>[
+      Text('Row One'),
+      Text('Row Two'),
+      Text('Row Three'),
+      Text('Row Four'),
+    ];
   }
 }
