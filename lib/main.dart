@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_app/ios_test/gesture_detector_demo.dart';
 import 'package:flutter_app/ios_test/table_and_collection_demo.dart';
 import 'package:flutter_app/ios_test/threading_isolate_demo.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
@@ -37,6 +38,7 @@ class MyApp extends StatelessWidget {
         routeNameOfThreadingIsolateDemoPage: (BuildContext context) => ThreadingIsolateDemo(),
         routeNameOfLocalizationDemoPage: (BuildContext context) => LocalizationDemo(),
         routeNameOfTableAndCollectionDemoPage: (BuildContext context) => TableAndCollectionDemo(),
+        routeNameOfGestureDetectorDemoPage: (BuildContext context) => GestureDetectorDemo(),
       },
     );
   }
@@ -76,6 +78,11 @@ class RandomWordsState extends State<RandomWords> {
       _keyOfTitle: 'Layouts',
       _keyOfSubtitle: 'What is the equivalent of UITableView or UICollectionView in Flutter?',
       _keyOfRouteName: routeNameOfTableAndCollectionDemoPage
+    },
+    {
+      _keyOfTitle: 'Gesture detection and touch event handling',
+      _keyOfSubtitle: 'How do I add a click listener to a widget in Flutter?',
+      _keyOfRouteName: routeNameOfGestureDetectorDemoPage
     },
   ];
   int _pushSignaturePainterCount = 0;
