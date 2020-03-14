@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_app/ios_test/table_and_collection.dart';
-import 'package:flutter_app/ios_test/threading_isolate.dart';
+import 'package:flutter_app/ios_test/table_and_collection_demo.dart';
+import 'package:flutter_app/ios_test/threading_isolate_demo.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 
-import 'ios_test/localization.dart';
-import 'ios_test/name_generator.dart';
-import 'ios_test/sample.dart';
-import 'ios_test/signature_painter.dart';
-import 'ios_test/threading_asynchronicity.dart';
+import 'ios_test/localization_demo.dart';
+import 'ios_test/name_generator_demo.dart';
+import 'ios_test/fade_demo.dart';
+import 'ios_test/signature_painter_demo.dart';
+import 'ios_test/threading_asynchronicity_demo.dart';
 
 void main() => runApp(MyApp());
 
@@ -31,12 +31,12 @@ class MyApp extends StatelessWidget {
       ),
       home: RandomWords(),
       routes: <String, WidgetBuilder> {
-        routeNameOfSignaturePage1: (BuildContext context) => Signature(title: routeNameOfSignaturePage1.substring(1)),
-        routeNameOfSignaturePage2: (BuildContext context) => Signature(title: routeNameOfSignaturePage2.substring(1)),
-        routeNameOfThreadingAsynchronicityPage: (BuildContext context) => ThreadingAsynchronicity(),
-        routeNameOfThreadingIsolatePage: (BuildContext context) => ThreadingIsolate(),
+        routeNameOfSignaturePainterDemoPage1: (BuildContext context) => SignaturePainterDemoPage(title: routeNameOfSignaturePainterDemoPage1.substring(1)),
+        routeNameOfSignaturePainterDemoPage2: (BuildContext context) => SignaturePainterDemoPage(title: routeNameOfSignaturePainterDemoPage2.substring(1)),
+        routeNameOfThreadingAsynchronicityDemoPage: (BuildContext context) => ThreadingAsynchronicityDemo(),
+        routeNameOfThreadingIsolateDemoPage: (BuildContext context) => ThreadingIsolateDemo(),
         routeNameOfLocalizationDemoPage: (BuildContext context) => LocalizationDemo(),
-        routeNameOfTableAndCollectionPage: (BuildContext context) => TableAndCollection(),
+        routeNameOfTableAndCollectionDemoPage: (BuildContext context) => TableAndCollectionDemo(),
       },
     );
   }
@@ -60,12 +60,12 @@ class RandomWordsState extends State<RandomWords> {
     {
       _keyOfTitle: 'Threading & asynchronicity',
       _keyOfSubtitle: 'How do I write asynchronous code?',
-      _keyOfRouteName: routeNameOfThreadingAsynchronicityPage
+      _keyOfRouteName: routeNameOfThreadingAsynchronicityDemoPage
     },
     {
       _keyOfTitle: 'Threading & asynchronicity',
       _keyOfSubtitle: 'How do you move work to a background thread?',
-      _keyOfRouteName: routeNameOfThreadingIsolatePage
+      _keyOfRouteName: routeNameOfThreadingIsolateDemoPage
     },
     {
       _keyOfTitle: 'Localization',
@@ -75,33 +75,33 @@ class RandomWordsState extends State<RandomWords> {
     {
       _keyOfTitle: 'Layouts',
       _keyOfSubtitle: 'What is the equivalent of UITableView or UICollectionView in Flutter?',
-      _keyOfRouteName: routeNameOfTableAndCollectionPage
+      _keyOfRouteName: routeNameOfTableAndCollectionDemoPage
     },
   ];
   int _pushSignaturePainterCount = 0;
 
-  void _pushNameGenerator() {
+  void _pushNameGeneratorDemo() {
     Navigator.of(context).push(
       MaterialPageRoute<void>(
         builder: (BuildContext context) {
-          return NameGenerator();
+          return NameGeneratorDemo();
         }
       ),
     );
   }
 
-  void _pushSample() {
+  void _pushFadeDemo() {
     Navigator.of(context).push(
       MaterialPageRoute<void>(
         builder: (BuildContext context) {
-          return Sample();
+          return FadeDemo();
         }
       ),
     );
   }
 
-  void _pushSignaturePainter() async {
-    String routeName = _pushSignaturePainterCount % 2 == 0 ? routeNameOfSignaturePage1 : routeNameOfSignaturePage2;
+  void _pushSignaturePainterDemo() async {
+    String routeName = _pushSignaturePainterCount % 2 == 0 ? routeNameOfSignaturePainterDemoPage1 : routeNameOfSignaturePainterDemoPage2;
     final result = await Navigator.of(context).pushNamed(routeName);
     print('The result of pop SignaturePage: $result');
 
@@ -127,9 +127,9 @@ class RandomWordsState extends State<RandomWords> {
       appBar: AppBar(
         title: Text(Strings.welcomeMessage),
         actions: <Widget>[
-          IconButton(icon: Icon(Icons.list), onPressed: _pushNameGenerator),
-          IconButton(icon: Icon(Icons.link), onPressed: _pushSample),
-          IconButton(icon: Icon(Icons.brush), onPressed: _pushSignaturePainter),
+          IconButton(icon: Icon(Icons.list), onPressed: _pushNameGeneratorDemo),
+          IconButton(icon: Icon(Icons.link), onPressed: _pushFadeDemo),
+          IconButton(icon: Icon(Icons.brush), onPressed: _pushSignaturePainterDemo),
         ],
       ),
       body: _buildItems(),

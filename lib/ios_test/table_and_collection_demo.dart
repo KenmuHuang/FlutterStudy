@@ -1,30 +1,30 @@
 import 'package:flutter/material.dart';
 
-final String routeNameOfTableAndCollectionPage = '/TableAndCollectionPage';
+final String routeNameOfTableAndCollectionDemoPage = '/TableAndCollectionDemoPage';
 
-class TableAndCollection extends StatelessWidget {
-  TableAndCollection({Key key}) : super(key: key);
+class TableAndCollectionDemo extends StatelessWidget {
+  TableAndCollectionDemo({Key key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    return TableAndCollectionPage(
-      title: 'Table And Collection Page',
+    return TableAndCollectionDemoPage(
+      title: 'Table And Collection Demo Page',
     );
   }
 }
 
-class TableAndCollectionPage extends StatefulWidget {
-  TableAndCollectionPage({Key key, this.title}) : super(key: key);
+class TableAndCollectionDemoPage extends StatefulWidget {
+  TableAndCollectionDemoPage({Key key, this.title}) : super(key: key);
 
   final String title;
 
   @override
-  _TableAndCollectionPageState createState() {
-    return _TableAndCollectionPageState();
+  _TableAndCollectionDemoPageState createState() {
+    return _TableAndCollectionDemoPageState();
   }
 }
 
-class _TableAndCollectionPageState extends State<TableAndCollectionPage> {
+class _TableAndCollectionDemoPageState extends State<TableAndCollectionDemoPage> {
   List<Widget> widgets = [];
 
   @override

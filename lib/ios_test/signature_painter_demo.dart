@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 
-final String routeNameOfSignaturePage1 = '/SignaturePage1';
-final String routeNameOfSignaturePage2 = '/SignaturePage2';
+final String routeNameOfSignaturePainterDemoPage1 = '/SignaturePainterDemoPage1';
+final String routeNameOfSignaturePainterDemoPage2 = '/SignaturePainterDemoPage2';
 
-class SignaturePainter extends CustomPainter {
-  SignaturePainter(this.points);
+class SignaturePainterDemo extends CustomPainter {
+  SignaturePainterDemo(this.points);
 
   final List<Offset> points;
 
@@ -23,23 +23,23 @@ class SignaturePainter extends CustomPainter {
   }
 
   @override
-  bool shouldRepaint(SignaturePainter oldDelegate) {
+  bool shouldRepaint(SignaturePainterDemo oldDelegate) {
     return oldDelegate.points != points;
   }
 }
 
-class Signature extends StatefulWidget {
-  Signature({Key key, this.title}) : super(key: key);
+class SignaturePainterDemoPage extends StatefulWidget {
+  SignaturePainterDemoPage({Key key, this.title}) : super(key: key);
 
   final String title;
 
   @override
-  _SignatureState createState() {
-    return _SignatureState();
+  _SignaturePainterDemoPageState createState() {
+    return _SignaturePainterDemoPageState();
   }
 }
 
-class _SignatureState extends State<Signature> {
+class _SignaturePainterDemoPageState extends State<SignaturePainterDemoPage> {
   List<Offset> _points = <Offset>[];
 
   @override
@@ -81,13 +81,13 @@ class _SignatureState extends State<Signature> {
             },
             onPanEnd: (DragEndDetails detail) => _points.add(null),
             child: CustomPaint(
-              painter: SignaturePainter(_points),
+              painter: SignaturePainterDemo(_points),
               size: Size.infinite,
             ),
           ),
         ],
       ),
-      backgroundColor: (routeNameOfSignaturePage1.endsWith(widget.title) ? Colors.lightBlue[50] : Colors.grey[300]),
+      backgroundColor: (routeNameOfSignaturePainterDemoPage1.endsWith(widget.title) ? Colors.lightBlue[50] : Colors.grey[300]),
     );
   }
 }

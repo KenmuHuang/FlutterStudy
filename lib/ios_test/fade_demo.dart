@@ -1,25 +1,25 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
-class Sample extends StatelessWidget {
+class FadeDemo extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return SamplePage(title: 'Fade Demo',);
+    return FadeDemoPage(title: 'Fade Demo Page',);
   }
 }
 
-class SamplePage extends StatefulWidget {
-  SamplePage({Key key, this.title}) : super(key: key);
+class FadeDemoPage extends StatefulWidget {
+  FadeDemoPage({Key key, this.title}) : super(key: key);
 
   final String title;
 
   @override
-  _SamplePageState createState() {
-    return _SamplePageState();
+  _FadeDemoPageState createState() {
+    return _FadeDemoPageState();
   }
 }
 
-class _SamplePageState extends State<SamplePage> with TickerProviderStateMixin {
+class _FadeDemoPageState extends State<FadeDemoPage> with TickerProviderStateMixin {
   String textToShow = 'I Like Flutter';
   bool toggle = true;
   AnimationController controller;

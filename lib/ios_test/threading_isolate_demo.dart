@@ -4,29 +4,29 @@ import 'dart:isolate';
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
 
-final String routeNameOfThreadingIsolatePage = '/ThreadingIsolatePage';
+final String routeNameOfThreadingIsolateDemoPage = '/ThreadingIsolateDemoPage';
 
-class ThreadingIsolate extends StatelessWidget {
-  ThreadingIsolate({Key key}) : super(key: key);
+class ThreadingIsolateDemo extends StatelessWidget {
+  ThreadingIsolateDemo({Key key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    return ThreadingIsolatePage(title: 'Threading Isolate Page');
+    return ThreadingIsolateDemoPage(title: 'Threading Isolate Demo Page');
   }
 }
 
-class ThreadingIsolatePage extends StatefulWidget {
-  ThreadingIsolatePage({Key key, this.title}) : super(key: key);
+class ThreadingIsolateDemoPage extends StatefulWidget {
+  ThreadingIsolateDemoPage({Key key, this.title}) : super(key: key);
 
   final String title;
 
   @override
-  _ThreadingIsolatePageState createState() {
-    return _ThreadingIsolatePageState();
+  _ThreadingIsolateDemoPageState createState() {
+    return _ThreadingIsolateDemoPageState();
   }
 }
 
-class _ThreadingIsolatePageState extends State<ThreadingIsolatePage> {
+class _ThreadingIsolateDemoPageState extends State<ThreadingIsolateDemoPage> {
   List widgets = [];
 
   @override

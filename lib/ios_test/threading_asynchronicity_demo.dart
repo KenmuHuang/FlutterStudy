@@ -3,29 +3,29 @@ import 'dart:convert';
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
 
-final String routeNameOfThreadingAsynchronicityPage = '/ThreadingAsynchronicityPage';
+final String routeNameOfThreadingAsynchronicityDemoPage = '/ThreadingAsynchronicityDemoPage';
 
-class ThreadingAsynchronicity extends StatelessWidget {
-  ThreadingAsynchronicity({Key key}) : super(key: key);
+class ThreadingAsynchronicityDemo extends StatelessWidget {
+  ThreadingAsynchronicityDemo({Key key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    return ThreadingAsynchronicityPage(title: 'Threading Asynchronicity Page');
+    return ThreadingAsynchronicityDemoPage(title: 'Threading Asynchronicity Demo Page');
   }
 }
 
-class ThreadingAsynchronicityPage extends StatefulWidget {
-  ThreadingAsynchronicityPage({Key key, this.title}) : super(key: key);
+class ThreadingAsynchronicityDemoPage extends StatefulWidget {
+  ThreadingAsynchronicityDemoPage({Key key, this.title}) : super(key: key);
 
   final String title;
 
   @override
-  _ThreadingAsynchronicityPageState createState() {
-    return _ThreadingAsynchronicityPageState();
+  _ThreadingAsynchronicityDemoPageState createState() {
+    return _ThreadingAsynchronicityDemoPageState();
   }
 }
 
-class _ThreadingAsynchronicityPageState extends State<ThreadingAsynchronicityPage> {
+class _ThreadingAsynchronicityDemoPageState extends State<ThreadingAsynchronicityDemoPage> {
   List widgets = [];
 
   @override

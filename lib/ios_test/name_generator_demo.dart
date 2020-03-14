@@ -2,27 +2,27 @@ import 'package:english_words/english_words.dart';
 import 'package:flutter/material.dart';
 import 'custom_button.dart';
 
-class NameGenerator extends StatelessWidget {
-  NameGenerator({Key key}) : super(key: key);
+class NameGeneratorDemo extends StatelessWidget {
+  NameGeneratorDemo({Key key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    return NameGeneratorPage(title: 'Startup Name Generator',);
+    return NameGeneratorDemoPage(title: 'Startup Name Generator',);
   }
 }
 
-class NameGeneratorPage extends StatefulWidget {
-  NameGeneratorPage({Key key, this.title}) : super(key: key);
+class NameGeneratorDemoPage extends StatefulWidget {
+  NameGeneratorDemoPage({Key key, this.title}) : super(key: key);
 
   final String title;
 
   @override
-  _NameGeneratorPageState createState() {
-    return _NameGeneratorPageState();
+  _NameGeneratorDemoPageState createState() {
+    return _NameGeneratorDemoPageState();
   }
 }
 
-class _NameGeneratorPageState extends State<NameGeneratorPage> {
+class _NameGeneratorDemoPageState extends State<NameGeneratorDemoPage> {
   final List<WordPair> _suggestions = <WordPair>[];
   final Set<WordPair> _saved = Set<WordPair>();
   final TextStyle _biggerFont = const TextStyle(fontSize: 18.0);
