@@ -25,13 +25,14 @@ class GestureDetectorDemoPage extends StatefulWidget {
 }
 
 class _GestureDetectorDemoPageState extends State<GestureDetectorDemoPage> with TickerProviderStateMixin {
+  static const double logoDefaultWidth = 100.0;
   GlobalKey stackGlobalKey = GlobalKey();
   GlobalKey logoGlobalKey = GlobalKey();
-  double _logoLeft = 0.0;
-  double _logoTop = 0.0;
   double _areaWidth = 0.0;
   double _areaHeight = 0.0;
-  double _logoWidth = 100.0;
+  double _logoWidth = logoDefaultWidth;
+  double _logoLeft = 0.0;
+  double _logoTop = 0.0;
   bool alreadyBuildPosition = false;
   AnimationController controller;
   CurvedAnimation curvedAnimation;
@@ -137,6 +138,10 @@ class _GestureDetectorDemoPageState extends State<GestureDetectorDemoPage> with 
               },
               onLongPress: () {
                 print('FlutterLogo long press = ${DateTime.now()}');
+
+                setState(() {
+                  _logoWidth = _logoWidth == logoDefaultWidth ? 200.0 : logoDefaultWidth;
+                });
               },
               onLongPressMoveUpdate: (LongPressMoveUpdateDetails details) {
                 print('FlutterLogo long press move update = ${DateTime.now()}');
