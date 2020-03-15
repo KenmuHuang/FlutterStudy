@@ -134,17 +134,26 @@ class _GestureDetectorDemoPageState extends State<GestureDetectorDemoPage> with 
               },
               onLongPress: () {
                 print('FlutterLogo long press = ${DateTime.now()}');
-
-                setState(() {
-                  _logoWidth = _logoWidth == logoDefaultWidth ? 200.0 : logoDefaultWidth;
-                  _resetAreaSize();
-                });
               },
               onLongPressMoveUpdate: (LongPressMoveUpdateDetails details) {
                 print('FlutterLogo long press move update = ${DateTime.now()}');
               },
               onLongPressEnd: (LongPressEndDetails details) {
                 print('FlutterLogo long press end = ${DateTime.now()}');
+
+                setState(() {
+                  _logoWidth = _logoWidth == logoDefaultWidth ? 200.0 : logoDefaultWidth;
+                  _resetAreaSize();
+
+                  // 屏幕边界限制
+                  if (_logoLeft > _areaWidth) {
+                    _logoLeft = _areaWidth;
+                  }
+
+                  if (_logoTop > _areaHeight) {
+                    _logoTop = _areaHeight;
+                  }
+                });
               },
               onLongPressUp: () {
                 print('FlutterLogo long press up = ${DateTime.now()}');
