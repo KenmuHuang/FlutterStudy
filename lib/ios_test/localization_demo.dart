@@ -63,7 +63,6 @@ class LocalizationDemo extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    // TODO: implement build
     return LocalizationDemoPage(title: Localization.of(context).title);
   }
 }

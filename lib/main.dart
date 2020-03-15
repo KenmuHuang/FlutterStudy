@@ -1,6 +1,8 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_app/ios_test/gesture_detector_demo.dart';
 import 'package:flutter_app/ios_test/table_and_collection_demo.dart';
+import 'package:flutter_app/ios_test/text_field_demo.dart';
 import 'package:flutter_app/ios_test/threading_isolate_demo.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 
@@ -21,6 +23,9 @@ class MyApp extends StatelessWidget {
         const LocalizationDelegate(),
         GlobalMaterialLocalizations.delegate,
         GlobalWidgetsLocalizations.delegate,
+        // fix: The getter 'cutButtonLabel' was called on null, https://github.com/flutter/flutter/issues/43050
+        GlobalCupertinoLocalizations.delegate,
+        DefaultCupertinoLocalizations.delegate,
       ],
       supportedLocales: [
         const Locale('en', ''),
@@ -29,6 +34,9 @@ class MyApp extends StatelessWidget {
       title: 'Home Page',
       theme: ThemeData(
         primaryColor: Colors.purple[600],
+        primarySwatch: Colors.blue,
+        textSelectionColor: Colors.green,
+        textSelectionHandleColor: Colors.greenAccent
       ),
       home: RandomWords(),
       routes: <String, WidgetBuilder> {
@@ -39,6 +47,7 @@ class MyApp extends StatelessWidget {
         routeNameOfLocalizationDemoPage: (BuildContext context) => LocalizationDemo(),
         routeNameOfTableAndCollectionDemoPage: (BuildContext context) => TableAndCollectionDemo(),
         routeNameOfGestureDetectorDemoPage: (BuildContext context) => GestureDetectorDemo(),
+        routeNameOfTextFieldDemoPage: (BuildContext context) => TextFieldDemo(),
       },
     );
   }
@@ -83,6 +92,11 @@ class RandomWordsState extends State<RandomWords> {
       _keyOfTitle: 'Gesture detection and touch event handling',
       _keyOfSubtitle: 'How do I add a click listener to a widget in Flutter?',
       _keyOfRouteName: routeNameOfGestureDetectorDemoPage
+    },
+    {
+      _keyOfTitle: 'Theming and text',
+      _keyOfSubtitle: 'How do I theme an app?',
+      _keyOfRouteName: routeNameOfTextFieldDemoPage
     },
   ];
   int _pushSignaturePainterCount = 0;
