@@ -22,11 +22,11 @@ class Localization {
   static Map<String, Map<String, String>> _localizedValues = {
     'en': {
       'title': 'Localization Demo Page',
-      'content': 'Hello World',
+      'content': 'Hello World～～～～～～～～～～～～～～～～～～～～～～～～～～～～～～～～～～～～～～～～',
     },
     'zh': {
       'title': '本地化示例页面',
-      'content': '您好，世界',
+      'content': '您好，世界～～～～～～～～～～～～～～～～～～～～～～～～～～～～～～～～～～～～～～～～',
     },
   };
 
@@ -96,7 +96,22 @@ class _LocalizationDemoPageState extends State<LocalizationDemoPage> {
         title: Text(widget.title),
       ),
       body: Center(
-        child: Text(Localization.of(context).content),
+        child: Text(
+          Localization.of(context).content,
+          textAlign: TextAlign.center,
+          overflow: TextOverflow.ellipsis,
+          style: TextStyle(
+            fontSize: 16.0,
+            fontWeight: FontWeight.bold,
+            color: Colors.cyan,
+            decoration: TextDecoration.lineThrough,
+            decorationColor: Colors.deepOrange,
+            decorationStyle: TextDecorationStyle.solid,
+            decorationThickness: 1.0,
+            letterSpacing: 10.0,
+            wordSpacing: 50.0,
+          ),
+        ),
       ),
     );
   }
