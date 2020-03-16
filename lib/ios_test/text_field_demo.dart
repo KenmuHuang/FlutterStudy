@@ -25,8 +25,9 @@ class TextFieldDemoPage extends StatefulWidget {
 }
 
 class _TextFieldDemoPageState extends State<TextFieldDemoPage> {
-  final TextEditingController _controller = new TextEditingController();
+  final TextEditingController _controller = TextEditingController();
   VoidCallback _listener;
+  String _errorText;
 
   @override
   void initState() {
@@ -69,6 +70,7 @@ class _TextFieldDemoPageState extends State<TextFieldDemoPage> {
             controller: _controller,
             decoration: InputDecoration(
               hintText: 'Type something',
+              errorText: _errorText,
               border: OutlineInputBorder(),
               icon: Icon(Icons.add),
               prefixIcon: Icon(Icons.title),
@@ -76,6 +78,15 @@ class _TextFieldDemoPageState extends State<TextFieldDemoPage> {
             ),
             onChanged: (String text) {
               print('typed: $text');
+            },
+            onSubmitted: (String text) {
+              setState(() {
+                if (isEmail(text)) {
+                  _errorText = null;
+                } else {
+                  _errorText = 'Error: This is not an email';
+                }
+              });
             },
           ),
           Padding(
@@ -86,13 +97,15 @@ class _TextFieldDemoPageState extends State<TextFieldDemoPage> {
             onPressed: () {
               String text = _controller.text;
               if (text.length > 0) {
-                showDialog(
-                  context: context,
-                  child: AlertDialog(
-                    title: Text('What you typed'),
-                    content: Text(text),
-                  ),
-                );
+                if (_errorText == null) {
+                  showDialog(
+                    context: context,
+                    child: AlertDialog(
+                      title: Text('What you typed'),
+                      content: Text(text),
+                    ),
+                  );
+                }
               } else {
                 showDialog(
                   context: context,
@@ -106,5 +119,11 @@ class _TextFieldDemoPageState extends State<TextFieldDemoPage> {
         ],
       ),
     );
+  }
+
+  bool isEmail(String input) {
+    String emailRegexp = r'^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$';
+    RegExp regExp = RegExp(emailRegexp);
+    return regExp.hasMatch(input);
   }
 }
