@@ -1,16 +1,17 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_app/demo/gesture_detector_demo.dart';
-import 'package:flutter_app/demo/table_and_collection_demo.dart';
-import 'package:flutter_app/demo/text_field_demo.dart';
-import 'package:flutter_app/demo/threading_isolate_demo.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 
+import 'demo/cache_demo.dart';
+import 'demo/gesture_detector_demo.dart';
 import 'demo/localization_demo.dart';
 import 'demo/name_generator_demo.dart';
 import 'demo/fade_demo.dart';
 import 'demo/signature_painter_demo.dart';
+import 'demo/table_and_collection_demo.dart';
+import 'demo/text_field_demo.dart';
 import 'demo/threading_asynchronicity_demo.dart';
+import 'demo/threading_isolate_demo.dart';
 
 void main() => runApp(MyApp());
 
@@ -48,6 +49,7 @@ class MyApp extends StatelessWidget {
         routeNameOfTableAndCollectionDemoPage: (BuildContext context) => TableAndCollectionDemo(),
         routeNameOfGestureDetectorDemoPage: (BuildContext context) => GestureDetectorDemo(),
         routeNameOfTextFieldDemoPage: (BuildContext context) => TextFieldDemo(),
+        routeNameOfCacheDemoPage: (BuildContext context) => CacheDemo(),
       },
     );
   }
@@ -97,6 +99,11 @@ class RandomWordsState extends State<RandomWords> {
       _keyOfTitle: 'Theming and text',
       _keyOfSubtitle: 'How do I theme an app?',
       _keyOfRouteName: routeNameOfTextFieldDemoPage
+    },
+    {
+      _keyOfTitle: 'Databases and local storage',
+      _keyOfSubtitle: 'How do I access UserDefault in Flutter?',
+      _keyOfRouteName: routeNameOfCacheDemoPage
     },
   ];
   int _pushSignaturePainterCount = 0;
