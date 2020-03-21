@@ -2,16 +2,16 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 
-import 'demo/shared_preferences_demo.dart';
-import 'demo/gesture_detector_demo.dart';
-import 'demo/localization_demo.dart';
-import 'demo/name_generator_demo.dart';
-import 'demo/fade_demo.dart';
-import 'demo/signature_painter_demo.dart';
-import 'demo/table_and_collection_demo.dart';
-import 'demo/text_field_demo.dart';
-import 'demo/threading_asynchronicity_demo.dart';
-import 'demo/threading_isolate_demo.dart';
+import 'demo/animation/fade_demo.dart';
+import 'demo/cache/shared_preferences_demo.dart';
+import 'demo/gesture/gesture_detector_demo.dart';
+import 'demo/gesture/signature_painter_demo.dart';
+import 'demo/layout/name_generator_demo.dart';
+import 'demo/layout/table_and_collection_demo.dart';
+import 'demo/layout/text_field_demo.dart';
+import 'demo/localization/localization_demo.dart';
+import 'demo/thread/threading_asynchronicity_demo.dart';
+import 'demo/thread/threading_isolate_demo.dart';
 
 void main() => runApp(MyApp());
 
