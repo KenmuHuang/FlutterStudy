@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 
 import 'demo/animation/fade_demo.dart';
+import 'demo/cache/database_demo.dart';
 import 'demo/cache/shared_preferences_demo.dart';
 import 'demo/gesture/gesture_detector_demo.dart';
 import 'demo/gesture/signature_painter_demo.dart';
@@ -50,6 +51,7 @@ class MyApp extends StatelessWidget {
         routeNameOfGestureDetectorDemoPage: (BuildContext context) => GestureDetectorDemo(),
         routeNameOfTextFieldDemoPage: (BuildContext context) => TextFieldDemo(),
         routeNameOfSharedPreferencesDemoPage: (BuildContext context) => SharedPreferencesDemo(),
+        routeNameOfDatabaseDemoPage: (BuildContext context) => DatabaseDemo(),
       },
     );
   }
@@ -104,6 +106,11 @@ class RandomWordsState extends State<RandomWords> {
       _keyOfTitle: 'Databases and local storage',
       _keyOfSubtitle: 'How do I access UserDefault in Flutter?',
       _keyOfRouteName: routeNameOfSharedPreferencesDemoPage
+    },
+    {
+      _keyOfTitle: 'Databases and local storage',
+      _keyOfSubtitle: 'What is the equivalent to CoreData in Flutter?',
+      _keyOfRouteName: routeNameOfDatabaseDemoPage
     },
   ];
   int _pushSignaturePainterCount = 0;

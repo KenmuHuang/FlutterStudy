@@ -11,7 +11,7 @@ class SharedPreferencesDemo extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SharedPreferencesDemoPage(
-      title: 'Cache Demo Page',
+      title: 'Shared Preferences Demo Page',
     );
   }
 }
@@ -87,9 +87,9 @@ class _SharedPreferencesDemoPageState extends State<SharedPreferencesDemoPage> {
         ),
       ),
       floatingActionButton: FloatingActionButton(
-        onPressed: _incrementCounter,
-        tooltip: 'Increment',
         child: const Icon(Icons.add),
+        tooltip: 'Increment',
+        onPressed: _incrementCounter,
       ),
     );
   }
