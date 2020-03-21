@@ -3,31 +3,31 @@ import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
-final String routeNameOfCacheDemoPage = '/CacheDemoPage';
+final String routeNameOfSharedPreferencesDemoPage = '/SharedPreferencesDemoPage';
 
-class CacheDemo extends StatelessWidget {
-  CacheDemo({Key key}) : super(key: key);
+class SharedPreferencesDemo extends StatelessWidget {
+  SharedPreferencesDemo({Key key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    return CacheDemoPage(
+    return SharedPreferencesDemoPage(
       title: 'Cache Demo Page',
     );
   }
 }
 
-class CacheDemoPage extends StatefulWidget {
-  CacheDemoPage({Key key, this.title}) : super(key: key);
+class SharedPreferencesDemoPage extends StatefulWidget {
+  SharedPreferencesDemoPage({Key key, this.title}) : super(key: key);
 
   final String title;
 
   @override
-  _CacheDemoPageState createState() {
-    return _CacheDemoPageState();
+  _SharedPreferencesDemoPageState createState() {
+    return _SharedPreferencesDemoPageState();
   }
 }
 
-class _CacheDemoPageState extends State<CacheDemoPage> {
+class _SharedPreferencesDemoPageState extends State<SharedPreferencesDemoPage> {
   Future<SharedPreferences> _prefs = SharedPreferences.getInstance();
   Future<int> _counter;
   final String _counterKey = 'counter';

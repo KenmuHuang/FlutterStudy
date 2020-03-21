@@ -2,7 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 
-import 'demo/cache_demo.dart';
+import 'demo/shared_preferences_demo.dart';
 import 'demo/gesture_detector_demo.dart';
 import 'demo/localization_demo.dart';
 import 'demo/name_generator_demo.dart';
@@ -49,7 +49,7 @@ class MyApp extends StatelessWidget {
         routeNameOfTableAndCollectionDemoPage: (BuildContext context) => TableAndCollectionDemo(),
         routeNameOfGestureDetectorDemoPage: (BuildContext context) => GestureDetectorDemo(),
         routeNameOfTextFieldDemoPage: (BuildContext context) => TextFieldDemo(),
-        routeNameOfCacheDemoPage: (BuildContext context) => CacheDemo(),
+        routeNameOfSharedPreferencesDemoPage: (BuildContext context) => SharedPreferencesDemo(),
       },
     );
   }
@@ -103,7 +103,7 @@ class RandomWordsState extends State<RandomWords> {
     {
       _keyOfTitle: 'Databases and local storage',
       _keyOfSubtitle: 'How do I access UserDefault in Flutter?',
-      _keyOfRouteName: routeNameOfCacheDemoPage
+      _keyOfRouteName: routeNameOfSharedPreferencesDemoPage
     },
   ];
   int _pushSignaturePainterCount = 0;
