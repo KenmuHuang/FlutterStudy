@@ -30,7 +30,7 @@ class DatabaseDemoPage extends StatefulWidget {
 class _DatabaseDemoPageState extends State<DatabaseDemoPage> {
   Database database;
   String databaseFilePath;
-  
+
   Future<void> _onConfigure(Database db) async {
     await db.execute('PRAGMA foreign_keys = ON');
   }
@@ -38,9 +38,9 @@ class _DatabaseDemoPageState extends State<DatabaseDemoPage> {
   _initDatabaseFilePath() async {
     // Get a location using getDatabasesPath
     var databasePath = await getDatabasesPath();
-    databaseFilePath = databasePath + '/demo.db';
+    databaseFilePath = '$databasePath/demo.db';
   }
-  
+
   void _createTableCompanyV1(Batch batch) {
     batch.execute('DROP TABLE IF EXISTS Company');
     batch.execute('''create table Company (
@@ -61,7 +61,7 @@ class _DatabaseDemoPageState extends State<DatabaseDemoPage> {
 
     print('create table Company successfully -- Version 2');
   }
-  
+
   void _updateTableCompanyV1toV2(Batch batch) {
     batch.execute('ALTER TABLE Company ADD description TEXT');
 
