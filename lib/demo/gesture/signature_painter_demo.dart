@@ -65,7 +65,7 @@ class _SignaturePainterDemoPageState extends State<SignaturePainterDemoPage> {
           },
         ),
       ),
-      body: new Stack(
+      body: Stack(
         children: <Widget>[
           GestureDetector(
             onPanUpdate: (DragUpdateDetails details) {

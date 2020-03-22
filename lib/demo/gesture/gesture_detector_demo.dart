@@ -78,7 +78,7 @@ class _GestureDetectorDemoPageState extends State<GestureDetectorDemoPage> with 
   }
 
   Widget _getStackWidget() {
-    return new Stack(
+    return Stack(
       key: _stackGlobalKey,
       children: <Widget>[
         Positioned(
