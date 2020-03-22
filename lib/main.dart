@@ -5,6 +5,7 @@ import 'package:flutter_localizations/flutter_localizations.dart';
 import 'demo/animation/fade_demo.dart';
 import 'demo/cache/database_demo.dart';
 import 'demo/cache/shared_preferences_demo.dart';
+import 'demo/extension/string_extension_demo.dart';
 import 'demo/gesture/gesture_detector_demo.dart';
 import 'demo/gesture/signature_painter_demo.dart';
 import 'demo/layout/name_generator_demo.dart';
@@ -52,6 +53,7 @@ class MyApp extends StatelessWidget {
         routeNameOfTextFieldDemoPage: (BuildContext context) => TextFieldDemo(),
         routeNameOfSharedPreferencesDemoPage: (BuildContext context) => SharedPreferencesDemo(),
         routeNameOfDatabaseDemoPage: (BuildContext context) => DatabaseDemo(),
+        routeNameOfStringExtensionDemoPage: (BuildContext context) => StringExtensionDemo(),
       },
     );
   }
@@ -111,6 +113,11 @@ class RandomWordsState extends State<RandomWords> {
       _keyOfTitle: 'Databases and local storage',
       _keyOfSubtitle: 'What is the equivalent to CoreData in Flutter?',
       _keyOfRouteName: routeNameOfDatabaseDemoPage
+    },
+    {
+      _keyOfTitle: 'Extension methods',
+      _keyOfSubtitle: 'Introduced in Dart 2.7, are a way to add functionality to existing libraries.',
+      _keyOfRouteName: routeNameOfStringExtensionDemoPage
     },
   ];
   int _pushSignaturePainterCount = 0;
