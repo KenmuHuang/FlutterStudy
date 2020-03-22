@@ -96,7 +96,7 @@ class _TextFieldDemoPageState extends State<TextFieldDemoPage> {
             child: Text('done'),
             onPressed: () {
               String text = _controller.text;
-              if (text.length > 0) {
+              if (text.isNotEmpty) {
                 if (_errorText == null) {
                   showDialog(
                     context: context,

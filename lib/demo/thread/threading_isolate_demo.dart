@@ -53,7 +53,7 @@ class _ThreadingIsolateDemoPageState extends State<ThreadingIsolateDemoPage> {
 
   Widget getBody() => isShowLoadingDialog() ? getLoadingDialog() : getListView();
 
-  bool isShowLoadingDialog() => widgets.length == 0;
+  bool isShowLoadingDialog() => widgets.isEmpty;
 
   Widget getLoadingDialog() =>
       Center(
