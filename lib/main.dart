@@ -5,6 +5,7 @@ import 'package:flutter_localizations/flutter_localizations.dart';
 import 'demo/animation/fade_demo.dart';
 import 'demo/cache/database_demo.dart';
 import 'demo/cache/shared_preferences_demo.dart';
+import 'demo/dart/language_samples.dart';
 import 'demo/extension/string_extension_demo.dart';
 import 'demo/gesture/gesture_detector_demo.dart';
 import 'demo/gesture/signature_painter_demo.dart';
@@ -175,6 +176,13 @@ class RandomWordsState extends State<RandomWords> {
         ],
       ),
       body: _buildItems(),
+      floatingActionButton: FloatingActionButton(
+        child: Icon(Icons.smartphone),
+        tooltip: 'Test dart',
+        onPressed: () {
+          LanguageSamples().testControlFlowStatements();
+        },
+      ),
     );
   }
 
