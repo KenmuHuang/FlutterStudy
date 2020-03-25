@@ -50,6 +50,10 @@ class LanguageSamples {
       print(flybyObject);
     }
 
+    flybyObjects.forEach((flybyObject) {
+      print('${flybyObjects.indexOf(flybyObject)}: $flybyObject');
+    });
+
     for (int month = 1; month <= 12; month++) {
         print('month: $month');
     }
@@ -63,5 +67,20 @@ class LanguageSamples {
       year -= 5;
     }
     print('year: $year');
+
+    flybyObjects.where((flybyObject) => flybyObject.contains('王星')).forEach(print);
+  }
+
+  void testFunctions() {
+    // 斐波纳契数列：0，1，1，2，3，5，8，13，21，34，.
+    var result = fibonacci(20);
+    print('fibonacci(20) result: $result');
+  }
+
+  int fibonacci(int n) {
+    if (n <= 1) {
+      return n;
+    }
+    return fibonacci(n - 1) + fibonacci(n - 2);
   }
 }

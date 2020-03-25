@@ -180,7 +180,9 @@ class RandomWordsState extends State<RandomWords> {
         child: Icon(Icons.smartphone),
         tooltip: 'Test dart',
         onPressed: () {
-          LanguageSamples().testControlFlowStatements();
+          LanguageSamples languageSamples = LanguageSamples();
+          languageSamples.testControlFlowStatements();
+          languageSamples.testFunctions();
         },
       ),
     );
