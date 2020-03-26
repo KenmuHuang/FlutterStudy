@@ -3,7 +3,7 @@ class Spacecraft {
   DateTime launchDate;
 
   Spacecraft(this.name, this.launchDate) {
-    print('name: $name, launchDate: $launchDate');
+    print('Spacecraft name: $name, launchDate: $launchDate');
   }
 
   Spacecraft.unlaunched(String name) : this(name, null);

@@ -1,4 +1,6 @@
-import 'package:flutter_app/demo/dart/language_samples_spacecraft.dart';
+import 'package:flutter_app/demo/dart/language_samples_orbiter.dart';
+
+import 'language_samples_spacecraft.dart';
 
 class LanguageSamples {
   Map<String, Object> testVariables() {
@@ -87,8 +89,15 @@ class LanguageSamples {
   }
 
   void testClasses() {
-    final String name = 'KenmuHuang Model';
-    Spacecraft(name, DateTime(2011, 11, 11, 11, 22, 33)).describe();
-    Spacecraft.unlaunched(name).describe();
+    String name = 'KenmuHuang Model';
+    Spacecraft spacecraft = Spacecraft(name, DateTime(2011, 11, 11, 11, 22, 33));
+    spacecraft.describe();
+
+    spacecraft = Spacecraft.unlaunched(name);
+    spacecraft.describe();
+
+    name = 'KenmuHuang Model Extends';
+    Orbiter(name, DateTime(2019, 11, 11), 10000).describe();
+    Orbiter.unlaunched(name).describe();
   }
 }
