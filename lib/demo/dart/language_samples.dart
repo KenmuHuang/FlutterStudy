@@ -1,3 +1,5 @@
+import 'package:flutter_app/demo/dart/language_samples_spacecraft.dart';
+
 class LanguageSamples {
   Map<String, Object> testVariables() {
     var name = 'Kenmu';
@@ -82,5 +84,11 @@ class LanguageSamples {
       return n;
     }
     return fibonacci(n - 1) + fibonacci(n - 2);
+  }
+
+  void testClasses() {
+    final String name = 'KenmuHuang Model';
+    Spacecraft(name, DateTime(2011, 11, 11, 11, 22, 33)).describe();
+    Spacecraft.unlaunched(name).describe();
   }
 }

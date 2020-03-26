@@ -1,7 +1,11 @@
+// Importing core libraries
+
+// Importing libraries from external packages
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 
+// Importing files
 import 'demo/animation/fade_demo.dart';
 import 'demo/cache/database_demo.dart';
 import 'demo/cache/shared_preferences_demo.dart';
@@ -183,6 +187,7 @@ class RandomWordsState extends State<RandomWords> {
           LanguageSamples languageSamples = LanguageSamples();
           languageSamples.testControlFlowStatements();
           languageSamples.testFunctions();
+          languageSamples.testClasses();
         },
       ),
     );
