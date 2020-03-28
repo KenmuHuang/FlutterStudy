@@ -1,3 +1,4 @@
+import 'package:flutter_app/demo/dart/language_samples_async_await.dart';
 import 'package:flutter_app/demo/dart/language_samples_describable.dart';
 
 import 'language_samples_orbiter.dart';
@@ -122,5 +123,19 @@ class LanguageSamples {
     name = 'KenmuHuang Model Abstract Classes';
     MockSpaceship mockSpaceship = MockSpaceship(name);
     mockSpaceship.describeWithEmphasis();
+  }
+
+  void testAsync() {
+    final String message = 'KenmuHuang Model Async';
+    AsyncAwait asyncAwait = AsyncAwait();
+    asyncAwait.printWithDelay1(message);
+    asyncAwait.printWithDelay2(message);
+
+    Iterable<String> objects = List.from(['async_await_1', 'async_await_2', 'async_await_3']);
+    asyncAwait.createDescriptions(objects);
+
+    final String name = 'KenmuHuang Model';
+    Spacecraft spacecraft = Spacecraft(name, DateTime(2011, 11, 11, 11, 22, 33));
+    asyncAwait.report(spacecraft, objects);
   }
 }
