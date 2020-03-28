@@ -1,3 +1,5 @@
+import 'package:flutter_app/demo/dart/language_samples_describable.dart';
+
 import 'language_samples_orbiter.dart';
 import 'language_samples_piloted.dart';
 import 'language_samples_spacecraft.dart';
@@ -103,12 +105,22 @@ class LanguageSamples {
     Orbiter.unlaunched(name).describe();
 
     name = 'KenmuHuang Model Mixins';
-    PilotedCraft pilotedCraft = PilotedCraft(name, DateTime(2018, 08, 08));
+    PilotedCraft pilotedCraft = PilotedCraft(name, DateTime(2018));
     pilotedCraft.className = 'PilotedCraft';
     pilotedCraft.astronauts = 10;
     pilotedCraft.products = 20;
 //    pilotedCraft._describeText = 'Private Variable';
 //    pilotedCraft._describeCrew();
     pilotedCraft.describe();
+  }
+
+  void testInterfacesAndAbstractClasses() {
+    String name = 'KenmuHuang Model Interfaces';
+    MockSpacecraft mockSpacecraft = MockSpacecraft(name, DateTime(2008, 08, 08));
+    mockSpacecraft.describeWithEmphasis();
+
+    name = 'KenmuHuang Model Abstract Classes';
+    MockSpaceship mockSpaceship = MockSpaceship(name);
+    mockSpaceship.describeWithEmphasis();
   }
 }
