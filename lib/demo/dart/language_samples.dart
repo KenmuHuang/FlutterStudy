@@ -1,5 +1,5 @@
-import 'package:flutter_app/demo/dart/language_samples_orbiter.dart';
-
+import 'language_samples_orbiter.dart';
+import 'language_samples_piloted.dart';
 import 'language_samples_spacecraft.dart';
 
 class LanguageSamples {
@@ -95,9 +95,20 @@ class LanguageSamples {
 
     spacecraft = Spacecraft.unlaunched(name);
     spacecraft.describe();
+  }
 
-    name = 'KenmuHuang Model Extends';
+  void testInheritanceAndMixins() {
+    String name = 'KenmuHuang Model Extends';
     Orbiter(name, DateTime(2019, 11, 11), 10000).describe();
     Orbiter.unlaunched(name).describe();
+
+    name = 'KenmuHuang Model Mixins';
+    PilotedCraft pilotedCraft = PilotedCraft(name, DateTime(2018, 08, 08));
+    pilotedCraft.className = 'PilotedCraft';
+    pilotedCraft.astronauts = 10;
+    pilotedCraft.products = 20;
+//    pilotedCraft._describeText = 'Private Variable';
+//    pilotedCraft._describeCrew();
+    pilotedCraft.describe();
   }
 }

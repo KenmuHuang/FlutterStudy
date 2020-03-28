@@ -188,6 +188,7 @@ class RandomWordsState extends State<RandomWords> {
           languageSamples.testControlFlowStatements();
           languageSamples.testFunctions();
           languageSamples.testClasses();
+          languageSamples.testInheritanceAndMixins();
         },
       ),
     );
