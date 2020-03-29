@@ -1,4 +1,7 @@
-class LanguageTourVariables {
+import 'language_tour_describable.dart';
+
+class LanguageTourVariables extends LanguageTourDescribable {
+  @override
   void describe() {
     // Define variable
     var name1 = 'Bob';

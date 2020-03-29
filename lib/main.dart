@@ -196,6 +196,7 @@ class RandomWordsState extends State<RandomWords> {
 
           LanguageTour languageTour = LanguageTour();
           languageTour.testVariables();
+          languageTour.testTypes();
         },
       ),
     );
