@@ -38,6 +38,9 @@ dependencies:
   # Using by language_samples_async_await.dart
   path_provider: ^1.6.5
 
+  # Using by language_tour_types.dart
+  characters: ^0.5.0
+
 dev_dependencies:
   flutter_test:
     sdk: flutter
