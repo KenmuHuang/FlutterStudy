@@ -79,7 +79,7 @@ class RandomWordsState extends State<RandomWords> {
   static const String _keyOfTitle = 'title';
   static const String _keyOfSubtitle = 'subtitle';
   static const String _keyOfRouteName = 'routeName';
-  final List<Map<String, String>> _pageInfoList = [
+  List<Map<String, String>> _pageInfoList = [
     {
       _keyOfTitle: 'Threading & asynchronicity',
       _keyOfSubtitle: 'How do I write asynchronous code?',
@@ -167,6 +167,15 @@ class RandomWordsState extends State<RandomWords> {
   void _pushPageByRouteName(String routeName) async {
     final result = await Navigator.of(context).pushNamed(routeName);
     print('The result of pop ${routeName.substring(1)}: $result');
+  }
+
+
+  @override
+  void initState() {
+    super.initState();
+
+    // https://stackoverflow.com/questions/13416278/reverse-iterator-for-list/13417737#13417737
+    _pageInfoList = _pageInfoList.reversed.toList();
   }
 
   @override
