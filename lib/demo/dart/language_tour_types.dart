@@ -1,3 +1,5 @@
+import 'dart:collection';
+
 import 'package:characters/characters.dart';
 
 import 'language_tour_describable.dart';
@@ -390,6 +392,34 @@ class LanguageTourTypes extends LanguageTourDescribable {
       for (var i in listOfInts) '#$i',
     };
     print('mapOfStrings: $mapOfStrings'); // Print: mapOfStrings: {#0, #1, #2, #3}
+
+    _describeLinkedHashMap();
+  }
+
+  void _describeLinkedHashMap() {
+    final String replacedKey = '789';
+    // Other type: [HashMap] is disorder, [SplayTreeMap] is balanced binary search tree
+    var orderlyMap = LinkedHashMap();
+    orderlyMap['123'] = 'Alice';
+    orderlyMap[replacedKey] = 'Bob';
+    orderlyMap['456'] = 'Kal';
+
+    for (var item in orderlyMap.keys) {
+      print('key: $item, value: ${orderlyMap[item]}');
+    }
+    
+    print('Change one value for key');
+    orderlyMap[replacedKey] = 'Kenmu';
+    for (var item in orderlyMap.keys) {
+      print('key: $item, value: ${orderlyMap[item]}');
+    }
+    
+    print('Remove and change one value for key');
+    orderlyMap.remove(replacedKey);
+    orderlyMap[replacedKey] = 'Kenmu';
+    for (var item in orderlyMap.keys) {
+      print('key: $item, value: ${orderlyMap[item]}');
+    }
   }
 
   void _describeRunes() {
