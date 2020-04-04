@@ -6,6 +6,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 
 // Importing files
+import 'catalog/animation_and_motion/main.dart' as animation_and_motion;
+import 'catalog/assets_images_and_icons/main.dart' as assets_images_and_icons;
 import 'demo/animation/fade_demo.dart';
 import 'demo/cache/database_demo.dart';
 import 'demo/cache/shared_preferences_demo.dart';
@@ -24,6 +26,22 @@ import 'demo/thread/threading_isolate_demo.dart';
 void main() => runApp(MyApp());
 
 class MyApp extends StatelessWidget {
+  final staticRoutes = <String, WidgetBuilder> {
+    routeNameOfSignaturePainterDemoPage1: (BuildContext context) => SignaturePainterDemoPage(title: routeNameOfSignaturePainterDemoPage1.substring(1)),
+    routeNameOfSignaturePainterDemoPage2: (BuildContext context) => SignaturePainterDemoPage(title: routeNameOfSignaturePainterDemoPage2.substring(1)),
+    routeNameOfThreadingAsynchronicityDemoPage: (BuildContext context) => ThreadingAsynchronicityDemo(),
+    routeNameOfThreadingIsolateDemoPage: (BuildContext context) => ThreadingIsolateDemo(),
+    routeNameOfLocalizationDemoPage: (BuildContext context) => LocalizationDemo(),
+    routeNameOfTableAndCollectionDemoPage: (BuildContext context) => TableAndCollectionDemo(),
+    routeNameOfGestureDetectorDemoPage: (BuildContext context) => GestureDetectorDemo(),
+    routeNameOfTextFieldDemoPage: (BuildContext context) => TextFieldDemo(),
+    routeNameOfSharedPreferencesDemoPage: (BuildContext context) => SharedPreferencesDemo(),
+    routeNameOfDatabaseDemoPage: (BuildContext context) => DatabaseDemo(),
+    routeNameOfStringExtensionDemoPage: (BuildContext context) => StringExtensionDemo(),
+    animation_and_motion.routeNameOfMainPage: (BuildContext context) => animation_and_motion.Main.shareInstance(),
+    assets_images_and_icons.routeNameOfMainPage: (BuildContext context) => assets_images_and_icons.Main.shareInstance(),
+  };
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -48,19 +66,7 @@ class MyApp extends StatelessWidget {
         textSelectionHandleColor: Colors.greenAccent
       ),
       home: RandomWords(),
-      routes: <String, WidgetBuilder> {
-        routeNameOfSignaturePainterDemoPage1: (BuildContext context) => SignaturePainterDemoPage(title: routeNameOfSignaturePainterDemoPage1.substring(1)),
-        routeNameOfSignaturePainterDemoPage2: (BuildContext context) => SignaturePainterDemoPage(title: routeNameOfSignaturePainterDemoPage2.substring(1)),
-        routeNameOfThreadingAsynchronicityDemoPage: (BuildContext context) => ThreadingAsynchronicityDemo(),
-        routeNameOfThreadingIsolateDemoPage: (BuildContext context) => ThreadingIsolateDemo(),
-        routeNameOfLocalizationDemoPage: (BuildContext context) => LocalizationDemo(),
-        routeNameOfTableAndCollectionDemoPage: (BuildContext context) => TableAndCollectionDemo(),
-        routeNameOfGestureDetectorDemoPage: (BuildContext context) => GestureDetectorDemo(),
-        routeNameOfTextFieldDemoPage: (BuildContext context) => TextFieldDemo(),
-        routeNameOfSharedPreferencesDemoPage: (BuildContext context) => SharedPreferencesDemo(),
-        routeNameOfDatabaseDemoPage: (BuildContext context) => DatabaseDemo(),
-        routeNameOfStringExtensionDemoPage: (BuildContext context) => StringExtensionDemo(),
-      },
+      routes: staticRoutes,
     );
   }
 }
@@ -124,6 +130,16 @@ class RandomWordsState extends State<RandomWords> {
       _keyOfTitle: 'Extension methods',
       _keyOfSubtitle: 'Introduced in Dart 2.7, are a way to add functionality to existing libraries.',
       _keyOfRouteName: routeNameOfStringExtensionDemoPage
+    },
+    {
+      _keyOfTitle: animation_and_motion.title,
+      _keyOfSubtitle: 'Bring animations to your app.',
+      _keyOfRouteName: animation_and_motion.routeNameOfMainPage
+    },
+    {
+      _keyOfTitle: assets_images_and_icons.title,
+      _keyOfSubtitle: 'Manage assets, display images, and show icons.',
+      _keyOfRouteName: assets_images_and_icons.routeNameOfMainPage
     },
   ];
   int _pushSignaturePainterCount = 0;
