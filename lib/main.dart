@@ -8,6 +8,17 @@ import 'package:flutter_localizations/flutter_localizations.dart';
 // Importing files
 import 'catalog/animation_and_motion/main.dart' as animation_and_motion;
 import 'catalog/assets_images_and_icons/main.dart' as assets_images_and_icons;
+import 'catalog/async/main.dart' as async;
+import 'catalog/basics/main.dart' as basics;
+import 'catalog/cupertino/main.dart' as cupertino;
+import 'catalog/input/main.dart' as input;
+import 'catalog/interaction_models/main.dart' as interaction_models;
+import 'catalog/layout/main.dart' as layout;
+import 'catalog/material_components/main.dart' as material_components;
+import 'catalog/painting_and_effects/main.dart' as painting_and_effects;
+import 'catalog/scrolling/main.dart' as scrolling;
+import 'catalog/styling/main.dart' as styling;
+import 'catalog/text/main.dart' as text;
 import 'demo/animation/fade_demo.dart';
 import 'demo/cache/database_demo.dart';
 import 'demo/cache/shared_preferences_demo.dart';
@@ -40,6 +51,17 @@ class MyApp extends StatelessWidget {
     routeNameOfStringExtensionDemoPage: (BuildContext context) => StringExtensionDemo(),
     animation_and_motion.routeNameOfMainPage: (BuildContext context) => animation_and_motion.Main.shareInstance(),
     assets_images_and_icons.routeNameOfMainPage: (BuildContext context) => assets_images_and_icons.Main.shareInstance(),
+    async.routeNameOfMainPage: (BuildContext context) => async.Main.shareInstance(),
+    basics.routeNameOfMainPage: (BuildContext context) => basics.Main.shareInstance(),
+    cupertino.routeNameOfMainPage: (BuildContext context) => cupertino.Main.shareInstance(),
+    input.routeNameOfMainPage: (BuildContext context) => input.Main.shareInstance(),
+    interaction_models.routeNameOfMainPage: (BuildContext context) => interaction_models.Main.shareInstance(),
+    layout.routeNameOfMainPage: (BuildContext context) => layout.Main.shareInstance(),
+    material_components.routeNameOfMainPage: (BuildContext context) => material_components.Main.shareInstance(),
+    painting_and_effects.routeNameOfMainPage: (BuildContext context) => painting_and_effects.Main.shareInstance(),
+    scrolling.routeNameOfMainPage: (BuildContext context) => scrolling.Main.shareInstance(),
+    styling.routeNameOfMainPage: (BuildContext context) => styling.Main.shareInstance(),
+    text.routeNameOfMainPage: (BuildContext context) => text.Main.shareInstance(),
   };
 
   @override
@@ -140,6 +162,61 @@ class RandomWordsState extends State<RandomWords> {
       _keyOfTitle: assets_images_and_icons.title,
       _keyOfSubtitle: 'Manage assets, display images, and show icons.',
       _keyOfRouteName: assets_images_and_icons.routeNameOfMainPage
+    },
+    {
+      _keyOfTitle: async.title,
+      _keyOfSubtitle: 'Async patterns to your Flutter application.',
+      _keyOfRouteName: async.routeNameOfMainPage
+    },
+    {
+      _keyOfTitle: basics.title,
+      _keyOfSubtitle: 'Widgets you absolutely need to know before building your first Flutter app.',
+      _keyOfRouteName: basics.routeNameOfMainPage
+    },
+    {
+      _keyOfTitle: cupertino.title,
+      _keyOfSubtitle: 'Beautiful and high-fidelity widgets for current iOS design language.',
+      _keyOfRouteName: cupertino.routeNameOfMainPage
+    },
+    {
+      _keyOfTitle: input.title,
+      _keyOfSubtitle: 'Take user input in addition to input widgets in Material Components and Cupertino.',
+      _keyOfRouteName: input.routeNameOfMainPage
+    },
+    {
+      _keyOfTitle: interaction_models.title,
+      _keyOfSubtitle: 'Respond to touch events and route users to different views.',
+      _keyOfRouteName: interaction_models.routeNameOfMainPage
+    },
+    {
+      _keyOfTitle: layout.title,
+      _keyOfSubtitle: 'Arrange other widgets columns, rows, grids, and many other layouts.',
+      _keyOfRouteName: layout.routeNameOfMainPage
+    },
+    {
+      _keyOfTitle: material_components.title,
+      _keyOfSubtitle: 'Visual, behavioral, and motion-rich widgets implementing the Material Design guidelines.',
+      _keyOfRouteName: material_components.routeNameOfMainPage
+    },
+    {
+      _keyOfTitle: painting_and_effects.title,
+      _keyOfSubtitle: 'These widgets apply visual effects to the children without changing their layout, size, or position.',
+      _keyOfRouteName: painting_and_effects.routeNameOfMainPage
+    },
+    {
+      _keyOfTitle: scrolling.title,
+      _keyOfSubtitle: 'Scroll multiple widgets as children of the parent.',
+      _keyOfRouteName: scrolling.routeNameOfMainPage
+    },
+    {
+      _keyOfTitle: styling.title,
+      _keyOfSubtitle: 'Manage the theme of your app, makes your app responsive to screen sizes, or add padding.',
+      _keyOfRouteName: styling.routeNameOfMainPage
+    },
+    {
+      _keyOfTitle: text.title,
+      _keyOfSubtitle: 'Display and style text.',
+      _keyOfRouteName: text.routeNameOfMainPage
     },
   ];
   int _pushSignaturePainterCount = 0;
