@@ -2,18 +2,18 @@ import 'package:flutter/material.dart';
 
 import 'dart:math' as math;
 
-class SpinnerPage extends StatefulWidget {
-  SpinnerPage({Key key, this.title}) : super(key: key);
+class AnimatedBuilderPage extends StatefulWidget {
+  AnimatedBuilderPage({Key key, this.title}) : super(key: key);
 
   final String title;
 
   @override
-  _SpinnerPageState createState() {
-    return _SpinnerPageState();
+  _AnimatedBuilderPageState createState() {
+    return _AnimatedBuilderPageState();
   }
 }
 
-class _SpinnerPageState extends State<SpinnerPage> with SingleTickerProviderStateMixin {
+class _AnimatedBuilderPageState extends State<AnimatedBuilderPage> with SingleTickerProviderStateMixin {
   AnimationController _controller;
   double _targetValue = 100.0;
   bool _isAnimatedBuilderMode = true;
