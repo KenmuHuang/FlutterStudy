@@ -2,6 +2,7 @@ import 'package:flutter_app/catalog/animation_and_motion/animated_builder.dart';
 import 'package:flutter_app/catalog/animation_and_motion/animated_container.dart';
 import 'package:flutter_app/catalog/animation_and_motion/animated_cross_fade.dart';
 import 'package:flutter_app/catalog/animation_and_motion/animated_default_text_style.dart';
+import 'package:flutter_app/catalog/animation_and_motion/animated_list_state.dart';
 import 'package:flutter_app/catalog/base_main.dart';
 import 'package:flutter_app/catalog/page_info_model.dart';
 
@@ -49,6 +50,16 @@ class Main extends BaseMain {
         title: pageTitle,
         subtitle: 'Animated version of DefaultTextStyle which automatically transitions the default text style (the text style to apply to descendant Text widgets without explicit style) over a given duration whenever the given style changes.',
         pageClass: AnimatedDefaultTextStylePage(
+          title: pageTitle,
+        )
+    );
+    _pageInfoModelList.add(pageInfoModel);
+
+    pageTitle = 'AnimatedListState class';
+    pageInfoModel = PageInfoModel(
+        title: pageTitle,
+        subtitle: 'The state for a scrolling container that animates items when they are inserted or removed.',
+        pageClass: AnimatedListStatePage(
           title: pageTitle,
         )
     );
