@@ -34,7 +34,14 @@ import 'demo/localization/localization_demo.dart';
 import 'demo/thread/threading_asynchronicity_demo.dart';
 import 'demo/thread/threading_isolate_demo.dart';
 
-void main() => runApp(MyApp());
+final bool isAllGrayForApp = false;
+
+void main() => runApp(app());
+
+Widget app() => isAllGrayForApp ? ColorFiltered(
+  colorFilter: ColorFilter.mode(Colors.grey, BlendMode.color),
+  child: MyApp(),
+) : MyApp();
 
 class MyApp extends StatelessWidget {
   final staticRoutes = <String, WidgetBuilder> {
