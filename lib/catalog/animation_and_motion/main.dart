@@ -3,6 +3,7 @@ import 'package:flutter_app/catalog/animation_and_motion/animated_container.dart
 import 'package:flutter_app/catalog/animation_and_motion/animated_cross_fade.dart';
 import 'package:flutter_app/catalog/animation_and_motion/animated_default_text_style.dart';
 import 'package:flutter_app/catalog/animation_and_motion/animated_list_state.dart';
+import 'package:flutter_app/catalog/animation_and_motion/animated_modal_barrier.dart';
 import 'package:flutter_app/catalog/base_main.dart';
 import 'package:flutter_app/catalog/page_info_model.dart';
 
@@ -60,6 +61,16 @@ class Main extends BaseMain {
         title: pageTitle,
         subtitle: 'The state for a scrolling container that animates items when they are inserted or removed.',
         pageClass: AnimatedListStatePage(
+          title: pageTitle,
+        )
+    );
+    _pageInfoModelList.add(pageInfoModel);
+
+    pageTitle = 'AnimatedModalBarrier class';
+    pageInfoModel = PageInfoModel(
+        title: pageTitle,
+        subtitle: 'A widget that prevents the user from interacting with widgets behind itself, and can be configured with an animated color value.',
+        pageClass: AnimatedModalBarrierPage(
           title: pageTitle,
         )
     );

@@ -109,9 +109,7 @@ class _AnimatedListStatePageState extends State<AnimatedListStatePage> {
   }
 }
 
-
-
-/// https://github.com/flutter/flutter/blob/master/examples/catalog/lib/animated_list.dart
+// https://github.com/flutter/flutter/blob/master/examples/catalog/lib/animated_list.dart
 /// Keeps a Dart List in sync with an AnimatedList.
 ///
 /// The [insert] and [removeAt] methods apply to both the internal list and the
