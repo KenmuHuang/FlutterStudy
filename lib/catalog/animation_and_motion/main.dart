@@ -1,5 +1,6 @@
 import 'package:flutter_app/catalog/animation_and_motion/animated_builder.dart';
 import 'package:flutter_app/catalog/animation_and_motion/animated_container.dart';
+import 'package:flutter_app/catalog/animation_and_motion/animated_cross_fade.dart';
 import 'package:flutter_app/catalog/base_main.dart';
 import 'package:flutter_app/catalog/page_info_model.dart';
 
@@ -27,6 +28,16 @@ class Main extends BaseMain {
         title: pageTitle,
         subtitle: 'Animated version of Container that gradually changes its values over a period of time.',
         pageClass: AnimatedContainerPage(
+          title: pageTitle,
+        )
+    );
+    _pageInfoModelList.add(pageInfoModel);
+
+    pageTitle = 'AnimatedCrossFade class';
+    pageInfoModel = PageInfoModel(
+        title: pageTitle,
+        subtitle: 'A widget that cross-fades between two given children and animates itself between their sizes.',
+        pageClass: AnimatedCrossFadePage(
           title: pageTitle,
         )
     );
