@@ -13,6 +13,7 @@ class AnimatedCrossFadePage extends StatefulWidget {
 
 class _AnimatedCrossFadePageState extends State<AnimatedCrossFadePage> {
   bool _isFirst = true;
+  int _count = 0;
   
   @override
   void initState() {
@@ -32,27 +33,47 @@ class _AnimatedCrossFadePageState extends State<AnimatedCrossFadePage> {
       ),
       body: GestureDetector(
         child: Center(
-          child: AnimatedCrossFade(
-            firstChild: const FlutterLogo(
-              style: FlutterLogoStyle.horizontal,
-              size: 150.0,
-              textColor: Colors.blue,
-            ),
-            secondChild: const FlutterLogo(
-              style: FlutterLogoStyle.stacked,
-              size: 100.0,
-              textColor: Colors.lightBlue,
-            ),
-            duration: const Duration(seconds: 1),
-            sizeCurve: Curves.linearToEaseOut,
-            firstCurve: Curves.fastOutSlowIn,
-            secondCurve: Curves.linear,
-            crossFadeState: _isFirst ? CrossFadeState.showFirst : CrossFadeState.showSecond,
-          ),
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: <Widget>[
+              AnimatedCrossFade(
+                firstChild: const FlutterLogo(
+                  style: FlutterLogoStyle.horizontal,
+                  size: 150.0,
+                  textColor: Colors.blue,
+                ),
+                secondChild: const FlutterLogo(
+                  style: FlutterLogoStyle.stacked,
+                  size: 100.0,
+                  textColor: Colors.lightBlue,
+                ),
+                duration: const Duration(seconds: 1),
+                sizeCurve: Curves.linearToEaseOut,
+                firstCurve: Curves.fastOutSlowIn,
+                secondCurve: Curves.linear,
+                crossFadeState: _isFirst ? CrossFadeState.showFirst : CrossFadeState.showSecond,
+              ),
+              AnimatedSwitcher(
+                child: Text(
+                  '$_count',
+                  key: ValueKey<int>(_count),
+                  style: Theme.of(context).textTheme.display4,
+                ),
+                duration: const Duration(milliseconds: 500),
+                transitionBuilder: (Widget child, Animation<double> animation) {
+                  return ScaleTransition(
+                    child: child,
+                    scale: animation,
+                  );
+                },
+              )
+            ],
+          )
         ),
         onTap: () {
           setState(() {
             _isFirst = !_isFirst;
+            _count++;
           });
         },
       ),
