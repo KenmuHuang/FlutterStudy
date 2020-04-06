@@ -11,6 +11,7 @@ import 'package:flutter_app/catalog/animation_and_motion/animated_size.dart';
 import 'package:flutter_app/catalog/animation_and_motion/animated_widget.dart';
 import 'package:flutter_app/catalog/animation_and_motion/animated_widget_base_state.dart';
 import 'package:flutter_app/catalog/animation_and_motion/decorated_box_transition.dart';
+import 'package:flutter_app/catalog/animation_and_motion/fade_transition.dart';
 import 'package:flutter_app/catalog/base_main.dart';
 import 'package:flutter_app/catalog/page_info_model.dart';
 
@@ -148,6 +149,16 @@ class Main extends BaseMain {
         title: pageTitle,
         subtitle: 'Animated version of a DecoratedBox that animates the different properties of its Decoration.',
         pageClass: DecoratedBoxTransitionPage(
+          title: pageTitle,
+        )
+    );
+    _pageInfoModelList.add(pageInfoModel);
+
+    pageTitle = 'FadeTransition class';
+    pageInfoModel = PageInfoModel(
+        title: pageTitle,
+        subtitle: 'Animates the opacity of a widget.',
+        pageClass: FadeTransitionPage(
           title: pageTitle,
         )
     );
