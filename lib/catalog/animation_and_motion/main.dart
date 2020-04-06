@@ -6,6 +6,7 @@ import 'package:flutter_app/catalog/animation_and_motion/animated_list_state.dar
 import 'package:flutter_app/catalog/animation_and_motion/animated_modal_barrier.dart';
 import 'package:flutter_app/catalog/animation_and_motion/animated_opacity.dart';
 import 'package:flutter_app/catalog/animation_and_motion/animated_physical_model.dart';
+import 'package:flutter_app/catalog/animation_and_motion/animated_positioned.dart';
 import 'package:flutter_app/catalog/base_main.dart';
 import 'package:flutter_app/catalog/page_info_model.dart';
 
@@ -93,6 +94,16 @@ class Main extends BaseMain {
         title: pageTitle,
         subtitle: 'Animated version of PhysicalModel.',
         pageClass: AnimatedPhysicalModelPage(
+          title: pageTitle,
+        )
+    );
+    _pageInfoModelList.add(pageInfoModel);
+
+    pageTitle = 'AnimatedPositioned class';
+    pageInfoModel = PageInfoModel(
+        title: pageTitle,
+        subtitle: 'Animated version of Positioned which automatically transitions the child\'s position over a given duration whenever the given position changes.',
+        pageClass: AnimatedPositionedPage(
           title: pageTitle,
         )
     );
