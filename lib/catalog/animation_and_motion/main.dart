@@ -5,6 +5,7 @@ import 'package:flutter_app/catalog/animation_and_motion/animated_default_text_s
 import 'package:flutter_app/catalog/animation_and_motion/animated_list_state.dart';
 import 'package:flutter_app/catalog/animation_and_motion/animated_modal_barrier.dart';
 import 'package:flutter_app/catalog/animation_and_motion/animated_opacity.dart';
+import 'package:flutter_app/catalog/animation_and_motion/animated_physical_model.dart';
 import 'package:flutter_app/catalog/base_main.dart';
 import 'package:flutter_app/catalog/page_info_model.dart';
 
@@ -82,6 +83,16 @@ class Main extends BaseMain {
         title: pageTitle,
         subtitle: 'Animated version of Opacity which automatically transitions the child\'s opacity over a given duration whenever the given opacity changes.',
         pageClass: AnimatedOpacityPage(
+          title: pageTitle,
+        )
+    );
+    _pageInfoModelList.add(pageInfoModel);
+
+    pageTitle = 'AnimatedPhysicalModel class';
+    pageInfoModel = PageInfoModel(
+        title: pageTitle,
+        subtitle: 'Animated version of PhysicalModel.',
+        pageClass: AnimatedPhysicalModelPage(
           title: pageTitle,
         )
     );
