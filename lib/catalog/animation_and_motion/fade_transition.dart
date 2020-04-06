@@ -13,7 +13,7 @@ class FadeTransitionPage extends StatefulWidget {
 
 class _FadeTransitionPageState extends State<FadeTransitionPage> with TickerProviderStateMixin {
   AnimationController _controller;
-  CurvedAnimation _animation;
+  Animation _animation;
   bool _selected = false;
 
   @override
@@ -24,10 +24,14 @@ class _FadeTransitionPageState extends State<FadeTransitionPage> with TickerProv
       duration: const Duration(milliseconds: 500),
       vsync: this,
     )..forward();
-    _animation = CurvedAnimation(
-      parent: _controller,
-      curve: Curves.easeInOut,
-    );
+//    _animation = CurvedAnimation(
+//      parent: _controller,
+//      curve: Curves.easeInOut,
+//    );
+    _animation = Tween(
+      begin: 0.0,
+      end: 1.0,
+    ).animate(_controller);
     _selected = true;
   }
 
