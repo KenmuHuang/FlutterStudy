@@ -7,6 +7,7 @@ import 'package:flutter_app/catalog/animation_and_motion/animated_modal_barrier.
 import 'package:flutter_app/catalog/animation_and_motion/animated_opacity.dart';
 import 'package:flutter_app/catalog/animation_and_motion/animated_physical_model.dart';
 import 'package:flutter_app/catalog/animation_and_motion/animated_positioned.dart';
+import 'package:flutter_app/catalog/animation_and_motion/animated_size.dart';
 import 'package:flutter_app/catalog/base_main.dart';
 import 'package:flutter_app/catalog/page_info_model.dart';
 
@@ -104,6 +105,16 @@ class Main extends BaseMain {
         title: pageTitle,
         subtitle: 'Animated version of Positioned which automatically transitions the child\'s position over a given duration whenever the given position changes.',
         pageClass: AnimatedPositionedPage(
+          title: pageTitle,
+        )
+    );
+    _pageInfoModelList.add(pageInfoModel);
+
+    pageTitle = 'AnimatedSize class';
+    pageInfoModel = PageInfoModel(
+        title: pageTitle,
+        subtitle: 'Animated widget that automatically transitions its size over a given duration whenever the given child\'s size changes.',
+        pageClass: AnimatedSizePage(
           title: pageTitle,
         )
     );
