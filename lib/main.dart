@@ -19,7 +19,6 @@ import 'catalog/painting_and_effects/main.dart' as painting_and_effects;
 import 'catalog/scrolling/main.dart' as scrolling;
 import 'catalog/styling/main.dart' as styling;
 import 'catalog/text/main.dart' as text;
-import 'demo/animation/fade_demo.dart';
 import 'demo/cache/database_demo.dart';
 import 'demo/cache/shared_preferences_demo.dart';
 import 'demo/dart/language_samples.dart';
@@ -238,16 +237,6 @@ class RandomWordsState extends State<RandomWords> {
     );
   }
 
-  void _pushFadeDemo() {
-    Navigator.of(context).push(
-      MaterialPageRoute<void>(
-        builder: (BuildContext context) {
-          return FadeDemo();
-        }
-      ),
-    );
-  }
-
   void _pushSignaturePainterDemo() async {
     String routeName = _pushSignaturePainterCount % 2 == 0 ? routeNameOfSignaturePainterDemoPage1 : routeNameOfSignaturePainterDemoPage2;
     final result = await Navigator.of(context).pushNamed(routeName);
@@ -285,7 +274,6 @@ class RandomWordsState extends State<RandomWords> {
         title: Text(Strings.welcomeMessage),
         actions: <Widget>[
           IconButton(icon: Icon(Icons.list), onPressed: _pushNameGeneratorDemo),
-          IconButton(icon: Icon(Icons.link), onPressed: _pushFadeDemo),
           IconButton(icon: Icon(Icons.brush), onPressed: _pushSignaturePainterDemo),
         ],
       ),
