@@ -9,6 +9,7 @@ import 'package:flutter_app/catalog/animation_and_motion/animated_physical_model
 import 'package:flutter_app/catalog/animation_and_motion/animated_positioned.dart';
 import 'package:flutter_app/catalog/animation_and_motion/animated_size.dart';
 import 'package:flutter_app/catalog/animation_and_motion/animated_widget.dart';
+import 'package:flutter_app/catalog/animation_and_motion/animated_widget_base_state.dart';
 import 'package:flutter_app/catalog/base_main.dart';
 import 'package:flutter_app/catalog/page_info_model.dart';
 
@@ -126,6 +127,16 @@ class Main extends BaseMain {
         title: pageTitle,
         subtitle: 'A widget that rebuilds when the given Listenable changes value.',
         pageClass: AnimatedWidgetPage(
+          title: pageTitle,
+        )
+    );
+    _pageInfoModelList.add(pageInfoModel);
+
+    pageTitle = 'AnimatedWidgetBaseState<T extends ImplicitlyAnimatedWidget> class';
+    pageInfoModel = PageInfoModel(
+        title: pageTitle,
+        subtitle: 'A base class for widgets with implicit animations that need to rebuild their widget tree as the animation runs.',
+        pageClass: AnimatedWidgetBaseStatePage(
           title: pageTitle,
         )
     );
