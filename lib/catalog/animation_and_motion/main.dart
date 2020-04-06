@@ -12,6 +12,7 @@ import 'package:flutter_app/catalog/animation_and_motion/animated_widget.dart';
 import 'package:flutter_app/catalog/animation_and_motion/animated_widget_base_state.dart';
 import 'package:flutter_app/catalog/animation_and_motion/decorated_box_transition.dart';
 import 'package:flutter_app/catalog/animation_and_motion/fade_transition.dart';
+import 'package:flutter_app/catalog/animation_and_motion/hero.dart';
 import 'package:flutter_app/catalog/base_main.dart';
 import 'package:flutter_app/catalog/page_info_model.dart';
 
@@ -159,6 +160,16 @@ class Main extends BaseMain {
         title: pageTitle,
         subtitle: 'Animates the opacity of a widget.',
         pageClass: FadeTransitionPage(
+          title: pageTitle,
+        )
+    );
+    _pageInfoModelList.add(pageInfoModel);
+
+    pageTitle = 'Hero class';
+    pageInfoModel = PageInfoModel(
+        title: pageTitle,
+        subtitle: 'A widget that marks its child as being a candidate for hero animations.',
+        pageClass: HeroPage(
           title: pageTitle,
         )
     );
