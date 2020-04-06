@@ -13,6 +13,7 @@ import 'package:flutter_app/catalog/animation_and_motion/animated_widget_base_st
 import 'package:flutter_app/catalog/animation_and_motion/decorated_box_transition.dart';
 import 'package:flutter_app/catalog/animation_and_motion/fade_transition.dart';
 import 'package:flutter_app/catalog/animation_and_motion/hero.dart';
+import 'package:flutter_app/catalog/animation_and_motion/positioned_transition.dart';
 import 'package:flutter_app/catalog/base_main.dart';
 import 'package:flutter_app/catalog/page_info_model.dart';
 
@@ -170,6 +171,16 @@ class Main extends BaseMain {
         title: pageTitle,
         subtitle: 'A widget that marks its child as being a candidate for hero animations.',
         pageClass: HeroPage(
+          title: pageTitle,
+        )
+    );
+    _pageInfoModelList.add(pageInfoModel);
+
+    pageTitle = 'PositionedTransition class';
+    pageInfoModel = PageInfoModel(
+        title: pageTitle,
+        subtitle: 'Animated version of Positioned which takes a specific Animation<RelativeRect> to transition the child\'s position from a start position to an end position over the lifetime of the animation.',
+        pageClass: PositionedTransitionPage(
           title: pageTitle,
         )
     );
