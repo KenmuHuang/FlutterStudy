@@ -14,6 +14,7 @@ import 'package:flutter_app/catalog/animation_and_motion/decorated_box_transitio
 import 'package:flutter_app/catalog/animation_and_motion/fade_transition.dart';
 import 'package:flutter_app/catalog/animation_and_motion/hero.dart';
 import 'package:flutter_app/catalog/animation_and_motion/positioned_transition.dart';
+import 'package:flutter_app/catalog/animation_and_motion/rotation_transition.dart';
 import 'package:flutter_app/catalog/base_main.dart';
 import 'package:flutter_app/catalog/page_info_model.dart';
 
@@ -181,6 +182,16 @@ class Main extends BaseMain {
         title: pageTitle,
         subtitle: 'Animated version of Positioned which takes a specific Animation<RelativeRect> to transition the child\'s position from a start position to an end position over the lifetime of the animation.',
         pageClass: PositionedTransitionPage(
+          title: pageTitle,
+        )
+    );
+    _pageInfoModelList.add(pageInfoModel);
+
+    pageTitle = 'RotationTransition class';
+    pageInfoModel = PageInfoModel(
+        title: pageTitle,
+        subtitle: 'Animates the rotation of a widget.',
+        pageClass: RotationTransitionPage(
           title: pageTitle,
         )
     );
