@@ -15,6 +15,7 @@ import 'package:flutter_app/catalog/animation_and_motion/fade_transition.dart';
 import 'package:flutter_app/catalog/animation_and_motion/hero.dart';
 import 'package:flutter_app/catalog/animation_and_motion/positioned_transition.dart';
 import 'package:flutter_app/catalog/animation_and_motion/rotation_transition.dart';
+import 'package:flutter_app/catalog/animation_and_motion/scale_transition.dart';
 import 'package:flutter_app/catalog/base_main.dart';
 import 'package:flutter_app/catalog/page_info_model.dart';
 
@@ -192,6 +193,16 @@ class Main extends BaseMain {
         title: pageTitle,
         subtitle: 'Animates the rotation of a widget.',
         pageClass: RotationTransitionPage(
+          title: pageTitle,
+        )
+    );
+    _pageInfoModelList.add(pageInfoModel);
+
+    pageTitle = 'ScaleTransition class';
+    pageInfoModel = PageInfoModel(
+        title: pageTitle,
+        subtitle: 'Animates the scale of a transformed widget.',
+        pageClass: ScaleTransitionPage(
           title: pageTitle,
         )
     );
