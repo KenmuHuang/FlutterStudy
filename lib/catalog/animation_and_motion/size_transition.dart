@@ -40,7 +40,10 @@ class _SizeTransitionPageState extends State<SizeTransitionPage> with TickerProv
         _controller.forward();
       }
     });
+
+    _selected = true;
     _controller.forward();
+
   }
 
   @override

@@ -18,6 +18,7 @@ import 'package:flutter_app/catalog/animation_and_motion/positioned_transition.d
 import 'package:flutter_app/catalog/animation_and_motion/rotation_transition.dart';
 import 'package:flutter_app/catalog/animation_and_motion/scale_transition.dart';
 import 'package:flutter_app/catalog/animation_and_motion/size_transition.dart';
+import 'package:flutter_app/catalog/animation_and_motion/slide_transition.dart';
 import 'package:flutter_app/catalog/base_main.dart';
 import 'package:flutter_app/catalog/page_info_model.dart';
 
@@ -215,6 +216,16 @@ class Main extends BaseMain {
         title: pageTitle,
         subtitle: 'Animates its own size and clips and aligns its child.',
         pageClass: SizeTransitionPage(
+          title: pageTitle,
+        )
+    );
+    _pageInfoModelList.add(pageInfoModel);
+
+    pageTitle = 'SlideTransition class';
+    pageInfoModel = PageInfoModel(
+        title: pageTitle,
+        subtitle: 'Animates the position of a widget relative to its normal position.',
+        pageClass: SlideTransitionPage(
           title: pageTitle,
         )
     );
