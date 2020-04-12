@@ -41,7 +41,20 @@ class _BaseMainPageState extends State<BaseMainPage> {
   Future<void> _pushPage(dynamic page) async {
     if (page != null) {
       Future result = Navigator.push(context, PageRouteBuilder(
-          pageBuilder: (BuildContext context, Animation<double> animation, Animation<double> secondaryAnimation) => page
+        pageBuilder: (BuildContext context, Animation<double> animation, Animation<double> secondaryAnimation) => page,
+        transitionsBuilder: (BuildContext context, Animation<double> anmiation, Animation<double> secondaryAnimation, Widget child) {
+          var tween = Tween(
+              begin: Offset(0.0, 1.0),
+              end: Offset.zero
+          ).chain(CurveTween(
+            curve: Curves.easeInOut,
+          ));
+          return SlideTransition(
+            child: child,
+            position: anmiation.drive(tween),
+          );
+        },
+        transitionDuration: const Duration(milliseconds: 300),
       ));
       result.then((value) {
         if (value != null) {
