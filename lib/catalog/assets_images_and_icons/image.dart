@@ -13,10 +13,35 @@ class ImagePage extends StatefulWidget {
 
 class _ImagePageState extends State<ImagePage> {
   bool _selected = false;
+  double _avatarRadius = 30.0;
 
   @override
   void initState() {
     super.initState();
+
+    Future<Duration>.delayed(Duration(seconds: 1), () {
+      setState(() {
+        _avatarRadius = 40.0;
+      });
+
+      return Duration(milliseconds: 210);
+    }).then((Duration duration) {
+      Future<Duration>.delayed(duration, () {
+        setState(() {
+          _avatarRadius = 50.0;
+        });
+
+        return Duration(milliseconds: 210);
+      }).then((Duration duration) {
+        Future<Duration>.delayed(duration, () {
+          setState(() {
+            _avatarRadius = 40.0;
+          });
+
+          return Duration(milliseconds: 210);
+        });
+      });
+    });
   }
 
   @override
@@ -38,6 +63,12 @@ class _ImagePageState extends State<ImagePage> {
                 Row(
                   children: <Widget>[
                     Text('Local JPG: '),
+                    CircleAvatar(
+                      child: Text('Avatar'),
+                      backgroundImage: AssetImage('assets/images/wechat.png'),
+                      backgroundColor: Colors.indigo,
+                      radius: _avatarRadius,
+                    ),
                     Image.asset(
                       'assets/images/${_selected ? "pic1" : "pic2"}.jpg',
                       width: _selected ? 44.0 : 88.0,
