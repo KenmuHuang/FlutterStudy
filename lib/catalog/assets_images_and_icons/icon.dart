@@ -63,6 +63,7 @@ class _IconPageState extends State<IconPage> {
         onTap: () {
           setState(() {
             _selected = !_selected;
+            print('_selected: $_selected');
           });
         },
       ),
