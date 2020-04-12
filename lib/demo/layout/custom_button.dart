@@ -11,12 +11,12 @@ class CustomButton extends StatelessWidget {
       mainAxisAlignment: MainAxisAlignment.start,
       children: <Widget>[
         Image(
-          image: AssetImage('images/icon_home_top_card.png'),
+          image: AssetImage('assets/images/home_top_card.png'),
           width: 44.0,
           height: 44.0,
         ),
         Image.asset(
-          'images/icon_home_top_card.png',
+          'assets/images/home_top_card.png',
           width: 44.0,
           height: 44.0,
         ),

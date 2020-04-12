@@ -37,7 +37,7 @@ class _HeroPageState extends State<HeroPage> {
             child: ClipOval(
               child: Container(
                 child: Image.asset(
-                  'images/icon_home_top_card.png',
+                  'assets/images/home_top_card.png',
                   width: 44.0,
                   height: 44.0,
                 ),
@@ -82,7 +82,7 @@ class HeroTargetPage extends StatelessWidget {
           child: Hero(
             tag: heroTag,
             child: Image.asset(
-              'images/icon_home_top_card.png',
+              'assets/images/home_top_card.png',
               width: 88.0,
               height: 44.0,
             ),
