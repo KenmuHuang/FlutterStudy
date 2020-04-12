@@ -1,4 +1,5 @@
 import 'package:flutter_app/catalog/assets_images_and_icons/asset_bundle.dart';
+import 'package:flutter_app/catalog/assets_images_and_icons/icon.dart';
 import 'package:flutter_app/catalog/base_main.dart';
 import 'package:flutter_app/catalog/page_info_model.dart';
 
@@ -16,6 +17,16 @@ class Main extends BaseMain {
         title: pageTitle,
         subtitle: 'A collection of resources used by the application.',
         pageClass: AssetBundlePage(
+          title: pageTitle,
+        )
+    );
+    _pageInfoModelList.add(pageInfoModel);
+
+    pageTitle = 'Icon class';
+    pageInfoModel = PageInfoModel(
+        title: pageTitle,
+        subtitle: 'A graphical icon widget drawn with a glyph from a font described in an IconData such as material\'s predefined IconDatas in Icons.',
+        pageClass: IconPage(
           title: pageTitle,
         )
     );

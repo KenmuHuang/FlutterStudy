@@ -102,7 +102,7 @@ class _AssetBundlePageState extends State<AssetBundlePage> {
             ),
             Container(
               child: JsonWidget(),
-              height: 300.0,
+              height: 210.0,
               color: Colors.black12,
             ),
           ],
