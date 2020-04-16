@@ -1,4 +1,5 @@
 import 'package:flutter_app/catalog/async/future_builder.dart';
+import 'package:flutter_app/catalog/async/stream_builder.dart';
 import 'package:flutter_app/catalog/base_main.dart';
 import 'package:flutter_app/catalog/page_info_model.dart';
 
@@ -16,6 +17,16 @@ class Main extends BaseMain {
         title: pageTitle,
         subtitle: 'Widget that builds itself based on the latest snapshot of interaction with a Future.',
         pageClass: FutureBuilderPage(
+          title: pageTitle,
+        )
+    );
+    _pageInfoModelList.add(pageInfoModel);
+
+    pageTitle = 'StreamBuilder<T> class';
+    pageInfoModel = PageInfoModel(
+        title: pageTitle,
+        subtitle: 'Widget that builds itself based on the latest snapshot of interaction with a Stream.',
+        pageClass: StreamBuilderPage(
           title: pageTitle,
         )
     );
